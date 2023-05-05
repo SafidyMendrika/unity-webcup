@@ -77,9 +77,16 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost', //local
 	// 'hostname' => 'localhost', //deployé
-	'username' => '',
-	'password' => '',
-	'database' => '',
+
+	'username' => 'unity',// local
+	//'username' => '', //deployé
+
+	'password' => 'unity',// local
+	//'password' => 'unity45/UNITY',// deployé
+
+	'database' => 'webcup', // local
+	//'database' => 'unityteam_webcup', // deployé
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
