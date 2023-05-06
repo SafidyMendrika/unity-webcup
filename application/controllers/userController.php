@@ -32,4 +32,7 @@ class userController extends CI_Controller
             echo "tsy lasaaaaaa";
         }
     }
+    public function rand(){
+        echo rand(0,2);
+    }
 }
