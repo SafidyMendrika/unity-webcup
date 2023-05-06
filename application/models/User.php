@@ -24,13 +24,19 @@ class User extends CI_Model
         return false;
     }
     public function googleLogin(){
-        // am farany
-        $query = $this->db->select("id")->from("user")->where("email",$this->email)->where("password",$this->password)->get();
+        require "vendor/autoload.php";
 
-        if($query->num_rows()== 1){
-            return $query;
-        }
-        return false;
+        $client = new Google_Client();
+        $client->setClientId('931044001147-sbfcmmvrfjfutoudu3ajn64okd0himh8.apps.googleusercontent.com');
+        $client->setClientSecret('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');
+        $client->setRedirectUri('https://unityteam.madagascar.webcup.hodi.host/Prompt');
+        $client->addScope(Google_Service_Drive::DRIVE);
+
+        $service = new Google_Service_Drive($client);
+
+        $files = $service->files->listFiles(array())->getItems();
+
+        return $files;
     }
     public function findById($id){
         $query  = $this->db->select("*")->from("user")->where("id",$id)->get();

@@ -14,7 +14,7 @@ class Onirix extends \CI_Model
 
     public function processPrompt($prompt) {
         $splitedPrompt = preg_split('/[\s,]+/', strtolower($prompt));
-
+        var_dump($splitedPrompt);
         // Populating a dictionnary of category
         $predictionsCategory = array();
 
@@ -22,7 +22,7 @@ class Onirix extends \CI_Model
 
         foreach ($predictionCategoryQuery->result_array() as $predictionCategory) {
            // var_dump($predictionCategory);
-            $predictionCategory[$predictionCategory["id"]] = null;
+            $predictionsCategory[$predictionCategory["id"]] = null;
         }
 
         // Comparer avec les mots cle
@@ -33,23 +33,25 @@ class Onirix extends \CI_Model
                     // Un mot cle
                     $prediction = $this->getRandomPrediction($keyword["id"]);
 
-                    if ($predictionsCategory[$prediction["categorie"]] != null) break;
+                    if ($predictionsCategory[$prediction["idcategorie"]] != null) break;
 
-                    $predictionsCategory[$prediction["categorie"]] = $prediction;
+                    $predictionsCategory[$prediction["idcategorie"]] = $prediction;
                 }
             }
         }
 
         // Save the users predictions
         $data = array();
-        foreach($predictionsCategory as $prediction) {
-            $row = array (
-                "iduser" => $_SESSION['iduser'],
-                "idprediction" => $prediction['id']
-            );
-
-            $data[] = $row;
-        }
+       foreach($predictionsCategory as $prediction) {
+           if ($prediction) {
+               $row = array(
+                   //"iduser" => $_SESSION['iduser'],
+                   "iduser" => 1,
+                   "idprediction" => $prediction['id']
+               );
+               $data[] = $row;
+           }
+       }
 
         $this->db->insert_batch('historique', $data);
 
@@ -57,8 +59,7 @@ class Onirix extends \CI_Model
     }
 
     function getRandomPrediction($keywordId) {
-        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as categorie FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction where m.id = '.$keywordId);
-
+        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as idcategorie, c.nomcategorie as nomcategorie, t.libele as nomreve FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction JOIN categorieprediction c ON c.id = p.idcategorieprediction JOIN typereve t ON t.id = p.idtypereve where m.id = '.$keywordId);
         $predictionArray = array();
 
         foreach ($predictionQuery->result_array() as $prediction) {
@@ -69,31 +70,26 @@ class Onirix extends \CI_Model
         return $predictionArray[$randomIndex];
     }
 
-    public function prompt($prompt){
-        $max_tokens = 50;
-        $model = 'text-davinci-002';
-        // la demande à envoyer
-        $data = array(
-            'prompt' => $prompt,
-            'max_tokens' => $max_tokens,
-            'model' => $model
-        );
+    function countDream(){
+        $iduser = $this->session->get_userdata("idUser");
 
-        $options = array(
-            'http' => array(
-                'header' => "Content-type: application/json\r\nAuthorization: Bearer " . $this->apiKey . "\r\n",
-                'method' => 'POST',
-                'content' => json_encode($data),
-                'verify_peer' => true,
-            )
-        );
+        $this->db->select("*")->from("historique")->where("iduser",$iduser)->join("prediction","prediction.id = historique.idprediction");
 
-        // Envoi de la requête HTTP à l'API
-
-        $context = stream_context_create($options);
-        $result = file_get_contents('https://youtube.com', false, $context);
+        
+    }
 
 
-        return $result;
+    public function countDream (){
+       // $iduser =$_SESSION['iduser'],
+        $iduser =1;
+        $result= $this->db->query('select h.iduser,p.idtypereve,tr.libele from historique h NATURAL JOIN prediction p  JOIN typereve tr ON tr.id = p.idtypereve WHERE p.idtypereve=1 and h.iduser= '.$iduser);
+        return $result->num_rows();
+    }
+
+    public function countCauchemar (){
+        // $iduser =$_SESSION['iduser'],
+        $iduser =1;
+        $result= $this->db->query('select h.iduser,p.idtypereve,tr.libele from historique h NATURAL JOIN prediction p  JOIN typereve tr ON tr.id = p.idtypereve WHERE p.idtypereve=2 and h.iduser= '.$iduser);
+        return $result->num_rows();
     }
 }

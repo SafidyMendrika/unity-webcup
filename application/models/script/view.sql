@@ -1,0 +1,1 @@
+select h.iduser,p.idtypereve,tr.libele from historique h NATURAL JOIN prediction p JOIN typereve tr ON tr.id = p.idtypereve WHERE p.idtypereve=1 and h.iduser= 1;
