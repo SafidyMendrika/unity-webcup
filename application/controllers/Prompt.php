@@ -11,12 +11,18 @@ class Prompt extends CI_Controller {
             redirect(base_url());
         }
         $this->load->model("Onirix");
+        $this->load->model("History");
     }
 
     function index() {
+        $history = $this->History->histories($_SESSION["iduser"]);
+
+        $historyData["histories"] = $history;
+
         $this->load->view('prompt/navbar');
-        $this->load->view('prompt/home');
+        $this->load->view('prompt/home',$historyData);
     }
+
 
     function results() {
         $this->load->view('prompt/results');

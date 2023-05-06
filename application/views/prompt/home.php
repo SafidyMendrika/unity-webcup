@@ -20,16 +20,15 @@
             <img src="<?php echo base_url("assets/icon/arrow-right-336-svgrepo-com.svg"); ?>" alt="">
         </div>
         <div class="history-container" >
-            <div class="history reve" ><h2>Dormir debout</h2></div>
-            <div class="history reve" ><h2>Dormir assis</h2></div>
-            <div class="history cauchemar" ><h2>Dormir nu</h2></div>
-            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
-            <div class="history reve" ><h2>Dormir rassasié</h2></div>
-            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
-            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
-            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
-            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
-            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
+            <?php foreach ($histories as $history){ ?>
+                <div class="history <?php
+                if ($history["idtypereve"] == 1){
+                    echo "reve";
+                }else{
+                    echo "cauchemar";
+                }
+                ?>" ><h2><?= $history["prediction"] ?></h2></div>
+            <?php } ?>
 
         </div>
         </div>
