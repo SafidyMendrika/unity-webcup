@@ -69,5 +69,9 @@ class Onirix extends \CI_Model
         return $predictionArray[$randomIndex];
     }
 
-    function 
+    function countDream(){
+        $id = $this->session->get_userdata("idUser");
+
+        $this->db->select("*")->from("historique")
+    }
 }
