@@ -10,7 +10,6 @@ class IA extends CI_Controller
     }
 
     public function index(){
-        echo ini_get('allow_url_fopen');
     echo "<br>helloo";
     }
     public function prompt($prompt){

@@ -9,6 +9,7 @@ class Onirix extends \CI_Model
     public function __construct(){
         parent::__construct();
 
+        echo "wel come";
     }
 
 

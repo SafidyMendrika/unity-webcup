@@ -87,7 +87,7 @@ $db['default'] = array(
     'database' => 'webcup',// local
     //'database' => 'webcup',// deployé
 
-	'dbdriver' => 'mysql',
+	'dbdriver' => 'mysqli',
 
 	'dbprefix' => '',
 	'pconnect' => FALSE,
