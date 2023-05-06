@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="section hero section--is-active">
     <div class="top">
         <h1>Et si les rêves étaient<br />capables<br/ >de prédire l'avenir ?</h1>
         <a href="#">Essayez</a>
