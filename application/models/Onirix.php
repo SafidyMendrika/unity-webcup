@@ -9,19 +9,19 @@ class Onirix extends \CI_Model
     public function __construct(){
         parent::__construct();
 
-        echo "wel come";
     }
 
 
     public function processPrompt($prompt) {
         $splitedPrompt = preg_split('/[\s,]+/', strtolower($prompt));
 
-
         // Populating a dictionnary of category
         $predictionsCategory = array();
 
         $predictionCategoryQuery = $this->db->query("SELECT * FROM categorieprediction");
+
         foreach ($predictionCategoryQuery->result_array() as $predictionCategory) {
+           // var_dump($predictionCategory);
             $predictionCategory[$predictionCategory["id"]] = null;
         }
 
@@ -29,7 +29,7 @@ class Onirix extends \CI_Model
         $keywords_query = $this->db->query('SELECT * FROM motcle');
         for ($i = 0; $i < count($splitedPrompt); $i++) {
             foreach ($keywords_query->result_array() as $keyword) {
-                if ($keyword["mot"] == $splitedPrompt) {
+                if ($keyword["mot"] == $splitedPrompt[$i]) {
                     // Un mot cle
                     $prediction = $this->getRandomPrediction($keyword["id"]);
 
@@ -57,14 +57,15 @@ class Onirix extends \CI_Model
     }
 
     function getRandomPrediction($keywordId) {
-        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as categorie FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction');
+        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as categorie FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction where m.id = '.$keywordId);
+
         $predictionArray = array();
 
         foreach ($predictionQuery->result_array() as $prediction) {
+
             $predictionArray[] = $prediction;
         }
-
-        $randomIndex = random_int(0, count($predictionArray) - 1);
+        $randomIndex = rand( 0,count($predictionArray) - 1);
         return $predictionArray[$randomIndex];
     }
 

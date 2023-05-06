@@ -11,3 +11,9 @@
 .about-onirix > p {
   font-size: 15px;
 }
+
+@media screen and (max-width: 967px) {
+  .about-onirix {
+    justify-content: center;
+  }
+}
