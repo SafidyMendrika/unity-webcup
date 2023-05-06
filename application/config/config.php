@@ -24,9 +24,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
- //$config['base_url'] = 'http://localhost:3000'; // en local
+ $config['base_url'] = 'http://localhost:3000'; // en local
 
-$config['base_url'] = 'https://unityteam.madagascar.webcup.hodi.host'; // deployé
+//$config['base_url'] = 'https://unityteam.madagascar.webcup.hodi.host'; // deployé
 
 /*
 |--------------------------------------------------------------------------
