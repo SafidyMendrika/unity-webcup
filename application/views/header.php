@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/css/about_labo.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/news.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/about.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/footer.css"); ?>">
     <title>Home</title>
 </head>
 <body>

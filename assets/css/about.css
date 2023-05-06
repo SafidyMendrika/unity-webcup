@@ -87,10 +87,30 @@
   .about > .team > div {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fill, minmax(281px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(328px, 1fr));
   }
 
   .about h1 {
     font-size: 3vmin;
+  }
+}
+
+@media screen and (max-width: 967px) {
+  .about {
+    padding-top: 10rem;
+  }
+  .about > .team,
+  .about > .partenaire {
+    padding: 0;
+  }
+
+  .about > .partenaire {
+    padding-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 646px) {
+  .about {
+    padding-top: 30rem;
   }
 }

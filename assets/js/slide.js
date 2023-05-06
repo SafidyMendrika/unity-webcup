@@ -1,28 +1,31 @@
-const render = () => {
+(() => {
   $(document).ready(function () {
     var canScroll = true,
       scrollController = null;
     $(this).on("mousewheel DOMMouseScroll", function (e) {
       e.preventDefault();
 
-      var delta = e.originalEvent.wheelDelta
-        ? -e.originalEvent.wheelDelta
-        : e.originalEvent.detail * 20;
+      var windowWidth = window.innerWidth;
+      if (windowWidth > 967) {
+        var delta = e.originalEvent.wheelDelta
+          ? -e.originalEvent.wheelDelta
+          : e.originalEvent.detail * 20;
 
-      if (delta > 50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function () {
-          canScroll = true;
-        }, 800);
-        updateHelper(1);
-      } else if (delta < -50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function () {
-          canScroll = true;
-        }, 800);
-        updateHelper(-1);
+        if (delta > 50 && canScroll) {
+          canScroll = false;
+          clearTimeout(scrollController);
+          scrollController = setTimeout(function () {
+            canScroll = true;
+          }, 800);
+          updateHelper(1);
+        } else if (delta < -50 && canScroll) {
+          canScroll = false;
+          clearTimeout(scrollController);
+          scrollController = setTimeout(function () {
+            canScroll = true;
+          }, 800);
+          updateHelper(-1);
+        }
       }
     });
 
@@ -246,12 +249,4 @@ const render = () => {
     }
     workSlider();
   });
-};
-render();
-var windowWidth = window.innerWidth;
-window.addEventListener("resize", () => {
-  var windowWidth = window.innerWidth;
-  if (windowWidth > 871) {
-    render();
-  }
-});
+})();

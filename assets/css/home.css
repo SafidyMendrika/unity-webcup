@@ -94,11 +94,29 @@ section {
   }
 }
 
-@media screen and (max-width: 918px) {
+@media screen and (max-width: 967px) {
+  section {
+    position: relative;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
   main {
     max-width: 100%;
   }
+
+  body {
+    max-width: 95%;
+  }
+
+  section {
+    min-height: 100vh;
+    justify-content: initial;
+  }
 }
 
-@media screen and (max-width: 871px) {
+@media screen and (max-width: 454px) {
+  main {
+    padding-top: 17rem;
+  }
 }
