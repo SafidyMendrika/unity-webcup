@@ -14,7 +14,7 @@ class Onirix extends \CI_Model
 
     public function processPrompt($prompt) {
         $splitedPrompt = preg_split('/[\s,]+/', strtolower($prompt));
-
+        var_dump($splitedPrompt);
         // Populating a dictionnary of category
         $predictionsCategory = array();
 
@@ -22,7 +22,7 @@ class Onirix extends \CI_Model
 
         foreach ($predictionCategoryQuery->result_array() as $predictionCategory) {
            // var_dump($predictionCategory);
-            $predictionCategory[$predictionCategory["id"]] = null;
+            $predictionsCategory[$predictionCategory["id"]] = null;
         }
 
         // Comparer avec les mots cle
@@ -33,23 +33,25 @@ class Onirix extends \CI_Model
                     // Un mot cle
                     $prediction = $this->getRandomPrediction($keyword["id"]);
 
-                    if ($predictionsCategory[$prediction["categorie"]] != null) break;
+                    if ($predictionsCategory[$prediction["idcategorie"]] != null) break;
 
-                    $predictionsCategory[$prediction["categorie"]] = $prediction;
+                    $predictionsCategory[$prediction["idcategorie"]] = $prediction;
                 }
             }
         }
 
         // Save the users predictions
         $data = array();
-        foreach($predictionsCategory as $prediction) {
-            $row = array (
-                "iduser" => $_SESSION['iduser'],
-                "idprediction" => $prediction['id']
-            );
-
-            $data[] = $row;
-        }
+       foreach($predictionsCategory as $prediction) {
+           if ($prediction) {
+               $row = array(
+                   //"iduser" => $_SESSION['iduser'],
+                   "iduser" => 1,
+                   "idprediction" => $prediction['id']
+               );
+               $data[] = $row;
+           }
+       }
 
         $this->db->insert_batch('historique', $data);
 
@@ -57,8 +59,7 @@ class Onirix extends \CI_Model
     }
 
     function getRandomPrediction($keywordId) {
-        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as categorie FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction where m.id = '.$keywordId);
-
+        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as idcategorie, c.nomcategorie as nomcategorie, t.libele as nomreve FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction JOIN categorieprediction c ON c.id = p.idcategorieprediction JOIN typereve t ON t.id = p.idtypereve where m.id = '.$keywordId);
         $predictionArray = array();
 
         foreach ($predictionQuery->result_array() as $prediction) {
