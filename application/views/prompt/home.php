@@ -68,7 +68,7 @@
         xhr.addEventListener('load', (res) => {
             var result = res.target.responseText;
 
-            if(! result){
+            if(result == "false"){
                 notifySickness();
             }
         });
@@ -81,7 +81,7 @@
         xhr.send(null);
     })
     function notifySickness(){
-
+        const notification = document.querySelector()
     }
 </script>
 </html>
