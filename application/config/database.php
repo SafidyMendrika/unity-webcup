@@ -75,11 +75,20 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'postgres',
-	'password' => 'root',
-	'database' => 'comptability',
-	'dbdriver' => 'postgre',
+    'hostname' => 'localhost', // local
+    //'hostname' => 'localhost', // deployé
+
+    'username' => 'unity',// local
+    //'username' => 'unity',// deployé
+
+    'password' => 'unity',// local
+   // 'password' => 'unity',// deployé
+
+    'database' => 'webcup',// local
+    //'database' => 'webcup',// deployé
+
+	'dbdriver' => 'mysqli',
+
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
