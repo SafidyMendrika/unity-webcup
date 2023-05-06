@@ -16,7 +16,7 @@ class User extends CI_Model
     }
 
     public function login(){
-        $query = $this->db->select("id")->from("user")->where("email",$this->email)->where("password",$this->password)->get();
+        $query = $this->db->select("id")->from("user")->where("email",$this->email)->where("password",md5($this->password))->get();
 
         if($query->row() == 1){
             return $query->result_array();
@@ -25,7 +25,7 @@ class User extends CI_Model
     }
     public function googleLogin(){
         // am farany
-        $query = $this->db->select("id")->from("user")->where("email",$this->email)->where("password",$this->password)->get();
+        $query = $this->db->select("id")->from("user")->where("email",$this->email)->where("password",md5($this->password))->get();
 
         if($query->num_rows()== 1){
             return $query;
