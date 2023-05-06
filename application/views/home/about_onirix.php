@@ -1,4 +1,4 @@
-<section class="about-onirix">
+<section class="section about-onirix">
     <h1>ONIRIX, c'est quoi ?</h1>
     <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />

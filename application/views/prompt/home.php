@@ -47,6 +47,9 @@
         <img id="land-foreground-1" src="<?php echo base_url("assets/svg/land-foreground-1.svg") ?>" >
         <img id="land-background-1" src="<?php echo base_url("assets/svg/land-background-1.svg") ?>" >
         <img id="land-background-2" src="<?php echo base_url("assets/svg/land-background-2.svg") ?>" >
+        <img id="land-background-3" src="<?php echo base_url("assets/svg/land-background-3.svg") ?>" >
+        <img id="clouds-background" src="<?php echo base_url("assets/svg/clouds-background.svg") ?>" >
+
     </div>
 </body>
 </html>

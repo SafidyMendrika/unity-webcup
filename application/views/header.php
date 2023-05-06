@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/home.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/nav.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/hero.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/about_onirix.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/about_labo.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/news.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/about.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/footer.css"); ?>">
     <title>Home</title>
 </head>
 <body>
