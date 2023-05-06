@@ -71,8 +71,10 @@ class Onirix extends \CI_Model
     }
 
     function countDream(){
-        $id = $this->session->get_userdata("idUser");
+        $iduser = $this->session->get_userdata("idUser");
 
-        $this->db->select("*")->from("historique")
+        $this->db->select("*")->from("historique")->where("iduser",$iduser)->join("prediction","prediction.id = historique.idprediction");
+
+        
     }
 }
