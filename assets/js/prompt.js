@@ -1,18 +1,4 @@
 // Checking if the user loses some snity
-window.addEventListener('load', () => {
-    var xhr = new XMLHttpRequest();
-
-    xhr.addEventListener('load', (res) => {
-        console.log(res.responseText);
-    });
-
-    xhr.addEventListener('error', (res) => {
-        console.log('Error');
-    });
-
-    xhr.open('GET', 'prompt/checkPatientSanity');
-    xhr.send(null);
-})
 
 
 /*// Create a Three.js scene

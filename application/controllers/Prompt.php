@@ -6,7 +6,7 @@ class Prompt extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-
+        $_SESSION["iduser"] = 1;
         $this->load->model("Onirix");
     }
 
@@ -31,7 +31,7 @@ class Prompt extends CI_Controller {
         $dreamCount = $this->Onirix->countDream();
         $nightmaresCount = $this->Onirix->countCauchemar();
 
-        return $dreamCount > $nightmaresCount;
+        echo "".$dreamCount>$nightmaresCount."";
     }
 
 }

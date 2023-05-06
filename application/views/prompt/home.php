@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
-<script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
 <body>
  <div class="historique">
@@ -27,6 +26,11 @@
             <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
             <div class="history reve" ><h2>Dormir rassasié</h2></div>
             <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
+            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
+            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
+            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
+            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
+
         </div>
         </div>
  </div>
@@ -57,4 +61,22 @@
         
     </div>
 </body>
+<script>
+    window.addEventListener('load', () => {
+        var xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('load', (res) => {
+            console.log("tongaaa");
+            console.log(res.target.responseText);
+        });
+
+        xhr.addEventListener('error', (res) => {
+            console.log('Error');
+        });
+
+        xhr.open('GET', '<?= base_url("Prompt/checkPatientSanity") ?>');
+        xhr.send(null);
+    })
+
+</script>
 </html>
