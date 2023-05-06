@@ -7,7 +7,6 @@ submitBtn.addEventListener("click",(e)=>{
 
     window.setTimeout(()=>{
         formPrompt.classList.add("success-prompt-result");
-        console.log("ao tsara")
 
     },1000);
 })

@@ -29,7 +29,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();*/
-
+/*
 // Handle button click
 var typeButtons = document.querySelectorAll('.type-button');
 const root_theme =  document. querySelector(':root');
@@ -66,3 +66,26 @@ function changeTheme(dreamType){
     }
 }
 
+*/
+// history
+const icon = document.querySelector(".icon");
+const historique = document.querySelector(".historique");
+const historyText = document.querySelector(".historique .text");
+const historyContainer = document.querySelector(".history-container");
+icon.addEventListener("click",()=>{
+    let closed = false;
+    if (historique.classList.contains("active")){
+        historyContainer.classList.remove("active");
+        closed = true;
+    }
+    historique.classList.toggle("active");
+    historyText.classList.toggle("simple");
+    icon.classList.toggle("active");
+
+    if (!closed){
+        window.setTimeout(()=>{
+            historyContainer.classList.add("active");
+        },800)
+    }
+
+})

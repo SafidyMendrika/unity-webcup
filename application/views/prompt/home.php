@@ -14,6 +14,19 @@
 <script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
 <body>
+ <div class="historique">
+        <div class="text simple" ><h2>Historique</h2></div>
+        <div class="icon">plus</div>
+        <div class="history-container" >
+            <div class="history reve" ><h2>Dormir debout</h2></div>
+            <div class="history reve" ><h2>Dormir assis</h2></div>
+            <div class="history cauchemar" ><h2>Dormir nu</h2></div>
+            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
+            <div class="history reve" ><h2>Dormir rassasié</h2></div>
+            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
+        </div>
+        </div>
+ </div>
     <div class="container" id="background-container">
         <div class="sun"></div>
         <div class="form-prompt-container">
@@ -27,8 +40,6 @@
             </form>
 
             <div class="dream-type-select">
-                <button class="type-button" data-type="reve">Reve</button>
-                <button class="type-button" data-type="cauchemar">Cauchemar</button>
             </div>
 
         </div>
