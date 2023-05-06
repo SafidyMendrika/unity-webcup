@@ -1,4 +1,4 @@
-// Create a Three.js scene
+/*// Create a Three.js scene
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x3b3772);
 
@@ -28,7 +28,7 @@ function animate() {
     cube.rotation.y += 0.01;
     renderer.render(scene, camera);
 }
-animate();
+animate();*/
 
 // Handle button click
 var typeButtons = document.querySelectorAll('.type-button');

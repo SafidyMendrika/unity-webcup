@@ -11,6 +11,7 @@
 <link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/prompt.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
+<script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
 <body>
     <div class="container" id="background-container">
@@ -18,7 +19,7 @@
             <form action="" class="form-prompt">
                 <div class="prompt-input">
                     <textarea name="dream-input" placeholder="Decrivez votre reve..." class="form-input" id="dream-input"></textarea>
-                    <button class="form-submit" id="dream-submit"><i class="fas fa-check"></i></button>
+                    <button class="form-submit" id="dream-submit">GO</button>
                 </div>
 
                 <input type="hidden" name="dream-type" id="dream-type">
