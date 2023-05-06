@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/css/home.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/css/hero.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/about_onirix.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/about_labo.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/news.css"); ?>">
     <title>Home</title>
 </head>
 <body>

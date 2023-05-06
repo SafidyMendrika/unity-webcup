@@ -1,0 +1,22 @@
+.about-labo {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.about-labo > div {
+  display: flex;
+}
+
+.about-labo > div:nth-child(1) {
+  margin-bottom: 4rem;
+}
+
+.about-labo > div h1 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.about-labo > .desc_1 {
+}

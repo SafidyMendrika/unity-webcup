@@ -1,7 +1,6 @@
 <section class="hero">
     <div class="top">
-        <h1>ONIRIX</h1>
-        <p>Et si les reves etaient capables<br/ >de predire l'avenir ?</p>
+        <h1>Et si les rêves étaient<br />capables<br/ >de prédire l'avenir ?</h1>
         <a href="#">Essayez</a>
     </div>
     <hr />
