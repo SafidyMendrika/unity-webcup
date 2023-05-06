@@ -79,13 +79,13 @@ $db['default'] = array(
     //'hostname' => 'localhost', // deployé
 
     'username' => 'unity',// local
-    //'username' => 'unity',// deployé
+    //'username' => 'unityteam_unity',// deployé
 
     'password' => 'unity',// local
-   // 'password' => 'unity',// deployé
+   // 'password' => 'unity45/UNITY45',// deployé
 
     'database' => 'webcup',// local
-    //'database' => 'webcup',// deployé
+    //'database' => 'unityteam_webcup',// deployé
 
 	'dbdriver' => 'mysqli',
 
