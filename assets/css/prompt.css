@@ -6,6 +6,7 @@
 body{
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 .container {
     width: 100%;
@@ -15,7 +16,7 @@ body{
     align-items: center;
     justify-content: center;
     /*background-image: linear-gradient(to right , var(--dark-purple),var(--darker-purple), var(--dark-purple));*/
-    background-color: var(--onirix-purple);
+    background: linear-gradient(214.3deg, #886EC1 17.12%, #3B3772 50.39%, #2F2C52 80.36%);
     transition: 1000ms;
 }
 
@@ -101,36 +102,65 @@ body{
 #land-foreground-1 {
     position: absolute;
     bottom: 0;
-
     width: 100%;
 
-    z-index: 1;
+    z-index: 10;
 }
 
 #land-background-1 {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 10%;
+
+    width: 400px;
+
+    z-index: 9;
 }
 
 #land-background-2 {
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: 5%;
+    bottom: 10%;
+
+    width: 400px;
+
+    z-index: 9;
 }
+
+#land-background-3 {
+    position: absolute;
+    bottom: -15%;
+
+    width: 100%;
+
+    z-index: 8;
+}
+
+#clouds-background {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+
+    width: 100%;
+}
+
+
+
+
+
 
 .form-prompt-container.success-prompt-result{
     bottom: 10%;
 }
 .sun{
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #ffffff;
-    box-shadow: 0px 10px 1000px 40px #fff;
-    top: 25%;
-    left: 10%;
+    box-shadow: 0px 0px 100px 40px #fff;
+    top: 15%;
+    right: 10%;
 
     transition: 1000ms;
 
@@ -149,7 +179,8 @@ body{
     width: 5%;
     height: 100%;
     z-index: 25;
-    background-color: #fff;
+    background: linear-gradient(to top right, rgba(255, 255, 255, .5), rgba(255, 255, 255, .3));
+    backdrop-filter: blur(5px);
 
     transition: 800ms;
 }
@@ -191,7 +222,6 @@ body{
     height: 80%;
     transition: 1200ms;
     display: none;
-    box-shadow: 0px 0px 15px #bebebe;
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -205,8 +235,8 @@ body{
     width: 80%;
     margin: 5%;
     padding: 5%;
-    font-family: arial;
-    border: 2px grey solid;
+
+    border-radius: 5px;
     color: #fff;
 }
 .history.reve{
