@@ -13,6 +13,61 @@ class Onirix extends \CI_Model
     }
 
 
+    public function processPrompt($prompt) {
+        $splitedPrompt = preg_split('/[\s,]+/', strtolower($prompt));
+
+
+        // Populating a dictionnary of category
+        $predictionsCategory = array();
+
+        $predictionCategoryQuery = $this->db->query("SELECT * FROM categorieprediction");
+        foreach ($predictionCategoryQuery->result_array() as $predictionCategory) {
+            $predictionCategory[$predictionCategory["id"]] = null;
+        }
+
+        // Comparer avec les mots cle
+        $keywords_query = $this->db->query('SELECT * FROM motcle');
+        for ($i = 0; $i < count($splitedPrompt); $i++) {
+            foreach ($keywords_query->result_array() as $keyword) {
+                if ($keyword["mot"] == $splitedPrompt) {
+                    // Un mot cle
+                    $prediction = $this->getRandomPrediction($keyword["id"]);
+
+                    if ($predictionsCategory[$prediction["categorie"]] != null) break;
+
+                    $predictionsCategory[$prediction["categorie"]] = $prediction;
+                }
+            }
+        }
+
+        // Save the users predictions
+        $data = array();
+        foreach($predictionsCategory as $prediction) {
+            $row = array (
+                "iduser" => $_SESSION['iduser'],
+                "idprediction" => $prediction['id']
+            );
+
+            $data[] = $row;
+        }
+
+        $this->db->insert_batch('historique', $data);
+
+        return $predictionsCategory;
+    }
+
+    function getRandomPrediction($keywordId) {
+        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as categorie FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction');
+        $predictionArray = array();
+
+        foreach ($predictionQuery->result_array() as $prediction) {
+            $predictionArray[] = $prediction;
+        }
+
+        $randomIndex = random_int(0, count($predictionArray) - 1);
+        return $predictionArray[$randomIndex];
+    }
+
     public function prompt($prompt){
         $max_tokens = 50;
         $model = 'text-davinci-002';

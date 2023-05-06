@@ -11,6 +11,7 @@
 <link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/prompt.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
+<script src="<?php echo base_url("assets/js/ia-prompt.js") ?>" defer></script>
 
 <body>
     <div class="container" id="background-container">
