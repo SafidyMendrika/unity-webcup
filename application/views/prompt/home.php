@@ -9,6 +9,7 @@
 </head>
 
 <link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/prompt.css"); ?>">
+<link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
 <script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
@@ -30,9 +31,9 @@
     <div class="container" id="background-container">
         <div class="sun"></div>
         <div class="form-prompt-container">
-            <form action="" class="form-prompt">
+            <form action="#" class="form-prompt">
                 <div class="prompt-input">
-                    <textarea name="dream-input" placeholder="Decrivez votre reve..." class="form-input" id="dream-input"></textarea>
+                    <textarea name="dream-input" placeholder="Décrivez votre rêve..." class="form-input" id="dream-input"></textarea>
                     <button class="form-submit" id="dream-submit">GO</button>
                 </div>
 
@@ -49,7 +50,7 @@
         <img id="land-background-2" src="<?php echo base_url("assets/svg/land-background-2.svg") ?>" >
         <img id="land-background-3" src="<?php echo base_url("assets/svg/land-background-3.svg") ?>" >
         <img id="clouds-background" src="<?php echo base_url("assets/svg/clouds-background.svg") ?>" >
-
+        
     </div>
 </body>
 </html>

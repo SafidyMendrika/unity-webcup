@@ -69,5 +69,4 @@ class Onirix extends \CI_Model
         return $predictionArray[$randomIndex];
     }
 
-    function 
 }
