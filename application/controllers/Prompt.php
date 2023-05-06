@@ -10,4 +10,9 @@ class Prompt extends CI_Controller {
     function results() {
         $this->load->view('prompt/results');
     }
+    function prompt(){
+        $prompt = $this->input->post();
+
+
+    }
 }
