@@ -19,7 +19,7 @@
                     <img src="<?php echo base_url("assets/img/toky.jpeg"); ?>" alt="">
                 </div>
                 <div>
-                    <div class="name">Toky RAKOTOARIVONY</div>
+                    <div class="name">Arisaina SOLOFOARISON</div>
                     <div class="skills">
                         <span>Designer</span>
                         <span>Front-end Developper</span>
@@ -31,7 +31,7 @@
                     <img src="<?php echo base_url("assets/img/toky.jpeg"); ?>" alt="">
                 </div>
                 <div>
-                    <div class="name">Toky RAKOTOARIVONY</div>
+                    <div class="name">Mendrika RAKOTOARIVONY</div>
                     <div class="skills">
                         <span>Designer</span>
                         <span>Front-end Developper</span>
@@ -43,7 +43,7 @@
                     <img src="<?php echo base_url("assets/img/toky.jpeg"); ?>" alt="">
                 </div>
                 <div>
-                    <div class="name">Toky RAKOTOARIVONY</div>
+                    <div class="name">Mirija RAKOTOARIVONY</div>
                     <div class="skills">
                         <span>Designer</span>
                         <span>Front-end Developper</span>

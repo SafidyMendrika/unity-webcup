@@ -112,6 +112,17 @@ section {
   section {
     min-height: 100vh;
     justify-content: initial;
+
+    opacity: 0 !important;
+
+    transform: translateX(-100px);
+
+    transition: 100ms ease-in-out;
+  }
+
+  section.active {
+    opacity: 1 !important;
+    transform: translateX(0px);
   }
 }
 
