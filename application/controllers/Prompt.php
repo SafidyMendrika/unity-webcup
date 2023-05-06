@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Prompt extends CI_Controller {
+
+    function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model("Onirix");
+    }
+
     function index() {
         $this->load->view('prompt/navbar');
         $this->load->view('prompt/home');
@@ -11,8 +19,10 @@ class Prompt extends CI_Controller {
         $this->load->view('prompt/results');
     }
     function prompt(){
-        $prompt = $this->input->post();
+        $prompt = $this->input->post("prompt");
 
+        $onirix = new Onirix();
 
+        var_dump($onirix->processPrompt($prompt));
     }
 }
