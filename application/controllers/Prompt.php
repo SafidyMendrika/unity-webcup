@@ -27,4 +27,11 @@ class Prompt extends CI_Controller {
        // var_dump($onirix->processPrompt($prompt));
     }
 
+    function checkPatientSanity() {
+        $dreamCount = $this->Onirix->countDream();
+        $nightmaresCount = $this->Onirix->countCauchemar();
+
+        return $dreamCount > $nightmaresCount;
+    }
+
 }
