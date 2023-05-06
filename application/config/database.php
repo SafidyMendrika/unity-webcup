@@ -75,14 +75,15 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+    //'port' => '3306', // deplotyé
     'hostname' => 'localhost', // local
-    //'hostname' => 'localhost', // deployé
+    //'hostname' => 'run1.hodi.host', // deployé
 
     'username' => 'unity',// local
     //'username' => 'unityteam_unity',// deployé
 
     'password' => 'unity',// local
-   // 'password' => 'unity45/UNITY45',// deployé
+    //'password' => 'unity45/UNITY45',// deployé
 
     'database' => 'webcup',// local
     //'database' => 'unityteam_webcup',// deployé
