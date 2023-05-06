@@ -75,18 +75,20 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-    'hostname' => 'localhost', //local
-    // 'hostname' => 'localhost', //deployé
+    'hostname' => 'localhost', // local
+    //'hostname' => 'localhost', // deployé
 
     'username' => 'unity',// local
-    //'username' => '', //deployé
+    //'username' => 'unity',// deployé
 
     'password' => 'unity',// local
-    //'password' => 'unity45/UNITY',// deployé
+   // 'password' => 'unity',// deployé
 
-    'database' => 'webcup', // local
-    //'database' => 'unityteam_webcup', // deployé
+    'database' => 'webcup',// local
+    //'database' => 'webcup',// deployé
+
 	'dbdriver' => 'mysqli',
+
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

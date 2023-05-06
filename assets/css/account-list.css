@@ -1,0 +1,7 @@
+.account-list-container{
+    width: 100%;
+    padding: 2%;
+}
+.list-element.hide{
+    display: none;
+}

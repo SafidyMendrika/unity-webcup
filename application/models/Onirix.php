@@ -1,8 +1,6 @@
 <?php
 
-namespace models;
-
-class Onirix extends CI_Model
+class Onirix extends \CI_Model
 {
 
     private $apiKey = "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";
@@ -11,29 +9,89 @@ class Onirix extends CI_Model
     public function __construct(){
         parent::__construct();
 
+        echo "wel come";
     }
 
 
-    public function promt($prompt){
+    public function processPrompt($prompt) {
+        $splitedPrompt = preg_split('/[\s,]+/', strtolower($prompt));
+
+
+        // Populating a dictionnary of category
+        $predictionsCategory = array();
+
+        $predictionCategoryQuery = $this->db->query("SELECT * FROM categorieprediction");
+        foreach ($predictionCategoryQuery->result_array() as $predictionCategory) {
+            $predictionCategory[$predictionCategory["id"]] = null;
+        }
+
+        // Comparer avec les mots cle
+        $keywords_query = $this->db->query('SELECT * FROM motcle');
+        for ($i = 0; $i < count($splitedPrompt); $i++) {
+            foreach ($keywords_query->result_array() as $keyword) {
+                if ($keyword["mot"] == $splitedPrompt) {
+                    // Un mot cle
+                    $prediction = $this->getRandomPrediction($keyword["id"]);
+
+                    if ($predictionsCategory[$prediction["categorie"]] != null) break;
+
+                    $predictionsCategory[$prediction["categorie"]] = $prediction;
+                }
+            }
+        }
+
+        // Save the users predictions
+        $data = array();
+        foreach($predictionsCategory as $prediction) {
+            $row = array (
+                "iduser" => $_SESSION['iduser'],
+                "idprediction" => $prediction['id']
+            );
+
+            $data[] = $row;
+        }
+
+        $this->db->insert_batch('historique', $data);
+
+        return $predictionsCategory;
+    }
+
+    function getRandomPrediction($keywordId) {
+        $predictionQuery = $this->db->query('SELECT pm.idprediction as id, p.prediction as prediction, p.idcategorieprediction as categorie FROM prediction_motcle as pm JOIN motcle as m ON m.id = pm.idmotcle JOIN prediction as p ON p.id = pm.idprediction');
+        $predictionArray = array();
+
+        foreach ($predictionQuery->result_array() as $prediction) {
+            $predictionArray[] = $prediction;
+        }
+
+        $randomIndex = random_int(0, count($predictionArray) - 1);
+        return $predictionArray[$randomIndex];
+    }
+
+    public function prompt($prompt){
+        $max_tokens = 50;
+        $model = 'text-davinci-002';
         // la demande à envoyer
         $data = array(
             'prompt' => $prompt,
-            'max_tokens' => 200,
-            'temperature' => 0.7
+            'max_tokens' => $max_tokens,
+            'model' => $model
         );
 
-        // Configuration de la requête HTTP
         $options = array(
             'http' => array(
-                'header' => "Content-type: application/json\r\nAuthorization: Bearer " . $this->apiKey,
+                'header' => "Content-type: application/json\r\nAuthorization: Bearer " . $this->apiKey . "\r\n",
                 'method' => 'POST',
-                'content' => json_encode($data)
+                'content' => json_encode($data),
+                'verify_peer' => true,
             )
         );
 
         // Envoi de la requête HTTP à l'API
+
         $context = stream_context_create($options);
-        $result = file_get_contents($this->endPoint, false, $context);
+        $result = file_get_contents('https://youtube.com', false, $context);
+
 
         return $result;
     }
