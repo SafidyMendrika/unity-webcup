@@ -1,8 +1,8 @@
 <section class="section about-onirix">
     <h1>ONIRIX, c'est quoi ?</h1>
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
-        Nam numquam eos rerum dolorum reiciendis eligendi officia repellat aliquam molestias a.<br />
-        Impedit culpa obcaecati quasi excepturi magnam maiores? Exercitationem, eum quia!
+        ONIRIX est une intelligence artificielle developee par l'institut international des Reves.<br />
+        C'est une IA avancee capable d'analyser et de decoder les reves des utilisateurs pour predire leur avenir.<br />
+        Elle permet aux utilisateurs de soumettre facilement la description de leurs reves pour obtenir des predictions premonitoires personnalisee et des informations utiles sur les evenements a venir!
     </p>
 </section>
