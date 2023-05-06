@@ -96,7 +96,6 @@
 
         xhr.addEventListener('load', (res) => {
 
-            console.log("tongaaa");
             console.log(res.target.responseText);
 
             var result = res.target.responseText;
