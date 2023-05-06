@@ -27,7 +27,7 @@ class User extends CI_Model
         // am farany
         $query = $this->db->select("id")->from("user")->where("email",$this->email)->where("password",$this->password)->get();
 
-        if($query->row() == 1){
+        if($query->num_rows()== 1){
             return $query;
         }
         return false;
