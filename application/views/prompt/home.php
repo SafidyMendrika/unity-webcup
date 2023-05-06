@@ -17,7 +17,9 @@
 <body>
  <div class="historique">
         <div class="text simple" ><h2>Historique</h2></div>
-        <div class="icon">plus</div>
+        <div class="icon-arrow-right">
+            <img src="<?php echo base_url("assets/icon/arrow-right-336-svgrepo-com.svg"); ?>" alt="">
+        </div>
         <div class="history-container" >
             <div class="history reve" ><h2>Dormir debout</h2></div>
             <div class="history reve" ><h2>Dormir assis</h2></div>
@@ -34,7 +36,9 @@
             <form action="#" class="form-prompt">
                 <div class="prompt-input">
                     <textarea name="dream-input" placeholder="Décrivez votre rêve..." class="form-input" id="dream-input"></textarea>
-                    <button class="form-submit" id="dream-submit">GO</button>
+                    <div class="icon-send">
+                        <img src="<?php echo base_url("assets/icon/send-svgrepo-com.svg"); ?>" alt="">
+                    </div>
                 </div>
 
                 <input type="hidden" name="dream-type" id="dream-type">
