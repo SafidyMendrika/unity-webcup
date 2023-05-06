@@ -32,6 +32,8 @@ animate();*/
 
 // Handle button click
 var typeButtons = document.querySelectorAll('.type-button');
+const root_theme =  document. querySelector(':root');
+const sun = document.querySelector(".sun");
 
 typeButtons.forEach(typeButton => {
     typeButton.addEventListener('click', () => {
@@ -43,5 +45,24 @@ typeButtons.forEach(typeButton => {
 
         var dreamTypeValue = document.querySelector('#dream-type');
         dreamTypeValue.setAttribute("value", typeButton.dataset.type);
+
+
+        // changint the background
+        changeTheme(dreamTypeValue.value);
     })
 });
+
+function changeTheme(dreamType){
+    const darkPurple = "#281678";
+    const darkerPurple = "#1b0c5e";
+
+    if (dreamType == "reve"){
+        root_theme.style.setProperty("--onirix-purple",darkPurple);
+        sun.classList.remove("east");
+    }
+    if (dreamType == "cauchemar"){
+        root_theme.style.setProperty("--onirix-purple",darkerPurple);
+        sun.classList.add("east");
+    }
+}
+

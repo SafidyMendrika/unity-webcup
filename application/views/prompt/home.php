@@ -15,6 +15,7 @@
 
 <body>
     <div class="container" id="background-container">
+        <div class="sun"></div>
         <div class="form-prompt-container">
             <form action="" class="form-prompt">
                 <div class="prompt-input">
