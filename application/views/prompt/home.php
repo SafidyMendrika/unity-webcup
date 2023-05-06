@@ -11,23 +11,35 @@
 <link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/prompt.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
-<script src="<?php echo base_url("assets/js/ia-prompt.js") ?>" defer></script>
+<script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
 <body>
+ <div class="historique">
+        <div class="text simple" ><h2>Historique</h2></div>
+        <div class="icon">plus</div>
+        <div class="history-container" >
+            <div class="history reve" ><h2>Dormir debout</h2></div>
+            <div class="history reve" ><h2>Dormir assis</h2></div>
+            <div class="history cauchemar" ><h2>Dormir nu</h2></div>
+            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
+            <div class="history reve" ><h2>Dormir rassasié</h2></div>
+            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
+        </div>
+        </div>
+ </div>
     <div class="container" id="background-container">
+        <div class="sun"></div>
         <div class="form-prompt-container">
             <form action="" class="form-prompt">
                 <div class="prompt-input">
                     <textarea name="dream-input" placeholder="Decrivez votre reve..." class="form-input" id="dream-input"></textarea>
-                    <button class="form-submit" id="dream-submit"><i class="fas fa-check"></i></button>
+                    <button class="form-submit" id="dream-submit">GO</button>
                 </div>
 
                 <input type="hidden" name="dream-type" id="dream-type">
             </form>
 
             <div class="dream-type-select">
-                <button class="type-button" data-type="reve">Reve</button>
-                <button class="type-button" data-type="cauchemar">Cauchemar</button>
             </div>
 
         </div>

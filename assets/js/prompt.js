@@ -1,4 +1,4 @@
-// Create a Three.js scene
+/*// Create a Three.js scene
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x3b3772);
 
@@ -28,10 +28,12 @@ function animate() {
     cube.rotation.y += 0.01;
     renderer.render(scene, camera);
 }
-animate();
-
+animate();*/
+/*
 // Handle button click
 var typeButtons = document.querySelectorAll('.type-button');
+const root_theme =  document. querySelector(':root');
+const sun = document.querySelector(".sun");
 
 typeButtons.forEach(typeButton => {
     typeButton.addEventListener('click', () => {
@@ -43,5 +45,47 @@ typeButtons.forEach(typeButton => {
 
         var dreamTypeValue = document.querySelector('#dream-type');
         dreamTypeValue.setAttribute("value", typeButton.dataset.type);
+
+
+        // changint the background
+        changeTheme(dreamTypeValue.value);
     })
 });
+
+function changeTheme(dreamType){
+    const darkPurple = "#281678";
+    const darkerPurple = "#1b0c5e";
+
+    if (dreamType == "reve"){
+        root_theme.style.setProperty("--onirix-purple",darkPurple);
+        sun.classList.remove("east");
+    }
+    if (dreamType == "cauchemar"){
+        root_theme.style.setProperty("--onirix-purple",darkerPurple);
+        sun.classList.add("east");
+    }
+}
+
+*/
+// history
+const icon = document.querySelector(".icon");
+const historique = document.querySelector(".historique");
+const historyText = document.querySelector(".historique .text");
+const historyContainer = document.querySelector(".history-container");
+icon.addEventListener("click",()=>{
+    let closed = false;
+    if (historique.classList.contains("active")){
+        historyContainer.classList.remove("active");
+        closed = true;
+    }
+    historique.classList.toggle("active");
+    historyText.classList.toggle("simple");
+    icon.classList.toggle("active");
+
+    if (!closed){
+        window.setTimeout(()=>{
+            historyContainer.classList.add("active");
+        },800)
+    }
+
+})

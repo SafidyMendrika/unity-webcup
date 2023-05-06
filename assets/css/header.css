@@ -1,0 +1,28 @@
+header {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 1088px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+header a {
+  color: white;
+}
+
+header a:nth-child(1) {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+header a:nth-child(2) {
+  font-size: 15px;
+  border-radius: 50px;
+  border: 1px solid white;
+  padding: 0.75rem 1rem;
+}
