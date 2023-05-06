@@ -1,6 +1,6 @@
 <?php
 
-class Onirix extends \CI_Model
+class Onirix extends CI_Model
 {
 
     private $apiKey = "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";

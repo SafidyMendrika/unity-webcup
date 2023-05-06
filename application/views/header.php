@@ -19,4 +19,5 @@
     <header>
         <a href="<?= base_url() ?>">ONIRIX</a>
         <a href="<?= base_url("Login") ?>">Se connecter</a>
+
     </header>
