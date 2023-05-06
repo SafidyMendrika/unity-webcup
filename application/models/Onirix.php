@@ -71,7 +71,6 @@ class Onirix extends \CI_Model
     }
 
 
-
     public function countDream (){
         $iduser =$_SESSION['iduser'];
        // $iduser =1;
