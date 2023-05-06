@@ -10,10 +10,9 @@ class IA extends CI_Controller
     }
 
     public function index(){
-    echo "helloo";
+    echo "<br>helloo";
     }
     public function prompt($prompt){
-
         //$prompt = $this->input->post("prompt");
 
         $onirix = new Onirix();

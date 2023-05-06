@@ -9,29 +9,34 @@ class Onirix extends \CI_Model
     public function __construct(){
         parent::__construct();
 
+        echo "wel come";
     }
 
 
     public function prompt($prompt){
+        $max_tokens = 50;
+        $model = 'text-davinci-002';
         // la demande à envoyer
         $data = array(
             'prompt' => $prompt,
-            'max_tokens' => 200,
-            'temperature' => 0.7
+            'max_tokens' => $max_tokens,
+            'model' => $model
         );
 
-        // Configuration de la requête HTTP
         $options = array(
             'http' => array(
-                'header' => "Content-type: application/json\r\nAuthorization: Bearer " . $this->apiKey,
+                'header' => "Content-type: application/json\r\nAuthorization: Bearer " . $this->apiKey . "\r\n",
                 'method' => 'POST',
-                'content' => json_encode($data)
+                'content' => json_encode($data),
+                'verify_peer' => true,
             )
         );
 
         // Envoi de la requête HTTP à l'API
+
         $context = stream_context_create($options);
-        $result = file_get_contents($this->endPoint, false, $context);
+        $result = file_get_contents('https://youtube.com', false, $context);
+
 
         return $result;
     }
