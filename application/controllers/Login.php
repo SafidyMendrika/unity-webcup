@@ -10,5 +10,12 @@ class Login extends CI_Controller {
     public function index() {
         $this->load->view("login");
     }
+
+    public function Login($email, $mdp){
+
+    }
+    public function LoginGoogle($email, $mdp){
+
+    }
     
 }
