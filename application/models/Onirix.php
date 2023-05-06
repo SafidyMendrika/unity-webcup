@@ -12,7 +12,7 @@ class Onirix extends \CI_Model
     }
 
 
-    public function promt($prompt){
+    public function prompt($prompt){
         // la demande à envoyer
         $data = array(
             'prompt' => $prompt,
