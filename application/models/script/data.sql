@@ -1,3 +1,7 @@
+insert into user values
+(default,'mirija','mirija@gmail.com',MD5('mirija'),null);
+
+
 insert into typereve values
 (default,'reve'),
 (default,'cauchemar');

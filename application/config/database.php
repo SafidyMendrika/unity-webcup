@@ -81,7 +81,7 @@ $db['default'] = array(
     'username' => 'unity',// local
     //'username' => 'unity',// deployé
 
-    'password' => 'unity',// local
+    'password' => '',// local
    // 'password' => 'unity',// deployé
 
     'database' => 'webcup',// local
