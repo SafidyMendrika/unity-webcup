@@ -1,8 +1,6 @@
 <?php
 
-namespace models;
-
-class Onirix extends CI_Model
+class Onirix extends \CI_Model
 {
 
     private $apiKey = "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";
@@ -14,7 +12,7 @@ class Onirix extends CI_Model
     }
 
 
-    public function promt($prompt){
+    public function prompt($prompt){
         // la demande à envoyer
         $data = array(
             'prompt' => $prompt,

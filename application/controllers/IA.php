@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 class IA extends CI_Controller
 {
     public function __construct()
@@ -12,9 +12,9 @@ class IA extends CI_Controller
     public function index(){
     echo "helloo";
     }
-    public function prompt(){
+    public function prompt($prompt){
 
-        $prompt = $this->input->post("prompt");
+        //$prompt = $this->input->post("prompt");
 
         $onirix = new Onirix();
         $result = $onirix->prompt($prompt);
