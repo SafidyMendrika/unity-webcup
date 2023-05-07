@@ -10,6 +10,7 @@
 
 .about-onirix > p {
   font-size: 15px;
+  color: #d5d5d5;
 }
 
 @media screen and (max-width: 967px) {
