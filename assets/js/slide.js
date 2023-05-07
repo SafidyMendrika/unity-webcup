@@ -1,11 +1,34 @@
 (() => {
+  var sections = document.querySelectorAll(".section");
+
+  var observer = new IntersectionObserver(
+    (observed) => {
+      for (let i = 0; i < observed.length; i++) {
+        observed[i].target.classList.toggle(
+          "active",
+          observed[i].isIntersecting
+        );
+      }
+    },
+    {
+      threshold: 0,
+    }
+  );
+
+  var windowWidth = window.innerWidth;
+  if (windowWidth <= 967) {
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  }
+
   $(document).ready(function () {
     var canScroll = true,
       scrollController = null;
     $(this).on("mousewheel DOMMouseScroll", function (e) {
       e.preventDefault();
 
-      var windowWidth = window.innerWidth;
+      windowWidth = window.innerWidth;
       if (windowWidth > 967) {
         var delta = e.originalEvent.wheelDelta
           ? -e.originalEvent.wheelDelta
@@ -26,6 +49,10 @@
           }, 800);
           updateHelper(-1);
         }
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
       }
     });
 
@@ -250,20 +277,3 @@
     workSlider();
   });
 })();
-
-
-// Observer
-var sections = document.querySelectorAll('.section');
-
-var observer = new IntersectionObserver((observed) => {
-  for (let i = 0; i < observed.length; i++) {
-    observed[i].target.classList.toggle('active', observed[i].isIntersecting)
-  }
-},
-    {
-      threshold: .6
-    })
-
-sections.forEach(section => {
-  observer.observe(section)
-})

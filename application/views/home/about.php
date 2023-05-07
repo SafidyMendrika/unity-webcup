@@ -1,10 +1,10 @@
 <section class="section about">
     <div class="team">
-        <h1>Notre équipe</h1>
+        <h1>UNITY TEAM</h1>
         <div>
             <div class="item">
                 <div>
-                    <img src="<?php echo base_url("assets/img/toky.jpeg"); ?>" alt="">
+                    <img src="<?php echo base_url("assets/img/Toky.jpeg"); ?>" alt="">
                 </div>
                 <div>
                     <div class="name">Toky RAKOTOARIVONY</div>
@@ -16,37 +16,37 @@
             </div>
             <div class="item">
                 <div>
-                    <img src="<?php echo base_url("assets/img/toky.jpeg"); ?>" alt="">
+                    <img src="<?php echo base_url("assets/img/Arisaina.jpg"); ?>" alt="">
                 </div>
                 <div>
                     <div class="name">Arisaina SOLOFOARISON</div>
                     <div class="skills">
-                        <span>Designer</span>
-                        <span>Front-end Developper</span>
+                        <span>Graphiste</span>
+                        <span>Fullstack</span>
                     </div>
                 </div>
             </div>
             <div class="item">
                 <div>
-                    <img src="<?php echo base_url("assets/img/toky.jpeg"); ?>" alt="">
+                    <img src="<?php echo base_url("assets/img/Mendrika.jpg"); ?>" alt="">
                 </div>
                 <div>
-                    <div class="name">Mendrika RAKOTOARIVONY</div>
+                    <div class="name">Mendrika RAZAFIMALAZA</div>
                     <div class="skills">
-                        <span>Designer</span>
-                        <span>Front-end Developper</span>
+                        <span>Chef de projet</span>
+                        <span>Back-end Developper</span>
                     </div>
                 </div>
             </div>
             <div class="item">
                 <div>
-                    <img src="<?php echo base_url("assets/img/toky.jpeg"); ?>" alt="">
+                    <img src="<?php echo base_url("assets/img/Mirija.jpg"); ?>" alt="">
                 </div>
                 <div>
-                    <div class="name">Mirija RAKOTOARIVONY</div>
+                    <div class="name">Mirija RAZAFIMBELO</div>
                     <div class="skills">
-                        <span>Designer</span>
-                        <span>Front-end Developper</span>
+                        <span>Concepteur</span>
+                        <span>Back-end Developper</span>
                     </div>
                 </div>
             </div>
