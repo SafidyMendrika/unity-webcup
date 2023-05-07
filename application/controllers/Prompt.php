@@ -22,9 +22,8 @@ class Prompt extends CI_Controller {
         $prompt = $this->input->post("prompt");
 
         $onirix = new Onirix();
-        var_dump($onirix->countCauchemar());
 
-       // var_dump($onirix->processPrompt($prompt));
+        echo $onirix->processPrompt($prompt);
     }
 
     function checkPatientSanity() {

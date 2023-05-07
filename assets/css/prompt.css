@@ -264,3 +264,7 @@ body {
 .icon-send img {
   width: 2rem;
 }
+
+#dream-prompt-submit {
+  cursor: pointer;
+}

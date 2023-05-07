@@ -36,7 +36,7 @@
             <form action="#" class="form-prompt">
                 <div class="prompt-input">
                     <textarea name="dream-input" placeholder="Décrivez votre rêve..." class="form-input" id="dream-input"></textarea>
-                    <div class="icon-send">
+                    <div class="icon-send" id="dream-prompt-submit">
                         <img src="<?php echo base_url("assets/icon/send-svgrepo-com.svg"); ?>" alt="">
                     </div>
                 </div>
@@ -58,3 +58,29 @@
     </div>
 </body>
 </html>
+
+<script>
+    // Sending the prompt
+    var dreamPromptSubmit = document.querySelector("#dream-prompt-submit");
+    dreamPromptSubmit.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Ajax to the controller
+        let xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('load' , (res) => {
+            console.log(res.responseText);
+        });
+
+        xhr.addEventListener('error', (res) => {
+            console.log("We have an error in the sending of the prompt");
+        })
+
+        // Getting the input of the prompt
+        var dreamPromptForm = document.querySelector(".form-prompt");
+        var formData = new FormData(dreamPromptForm);
+
+        xhr.open('GET', '<?php echo base_url('Prompt/prompt') ?>');
+        xhr.send(formData);
+    });
+</script>
