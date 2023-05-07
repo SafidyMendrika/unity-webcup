@@ -22,19 +22,12 @@
         </div>
         <div class="history-container" >
             <?php foreach ($histories as $history){ ?>
-                <div class="history <?php
-                if ($history["idtypereve"] == 1){
-                    echo "reve";
-                }else{
-                    echo "cauchemar";
-                }
-                ?>" ><h2><?= $history["prediction"] ?></h2>
-                    <?php
-                    if ($history["idtypereve"] != 1){ ?>
+                <?php  if ($history["idtypereve"] == 1){ ?>
+                <div class="history reve" ><h2><?= $history["prediction"] ?></h2>
 
-                        <a href="<?= base_url("Specialist/detals/".$history["idcategorieprediction"]) ?>"><button>consulter</button></a>
-                    <?php }?>
                 </div>
+
+                <?php } ?>
             <?php } ?>
 
         </div>
