@@ -1,6 +1,6 @@
 <section class="section about">
     <div class="team">
-        <h1>Notre équipe</h1>
+        <h1>UNITY TEAM</h1>
         <div>
             <div class="item">
                 <div>
