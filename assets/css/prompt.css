@@ -41,7 +41,7 @@ body {
 .form-prompt-container {
   position: absolute;
   background-color: white;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 5px;
   box-shadow: 4px 4px 140px #100f1f;
   width: 922px;
