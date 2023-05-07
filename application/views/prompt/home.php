@@ -83,6 +83,11 @@
 
         </div>
 
+        <div class="consultation-popup">
+            <p>Nous avons remarquer une haute frequence<br> de cauchemar de votre part. </p>
+            <a href="#">Pensez a consulter un professionnel ?</a>
+        </div>
+
         <img id="land-foreground-1" src="<?php echo base_url("assets/svg/land-foreground-1.svg") ?>" >
         <img id="land-background-1" src="<?php echo base_url("assets/svg/land-background-1.svg") ?>" >
         <img id="land-background-2" src="<?php echo base_url("assets/svg/land-background-2.svg") ?>" >
@@ -128,19 +133,13 @@
         xhr.open('POST', '<?php echo base_url('Prompt/prompt') ?>');
         xhr.send(formData);
     });
-</script>
-
-<script>
     window.addEventListener('load', () => {
         var xhr = new XMLHttpRequest();
 
         xhr.addEventListener('load', (res) => {
-
-            console.log(res.target.responseText);
-
             var result = res.target.responseText;
 
-            if(result == "false"){
+            if(result == "0"){
                 notifySickness();
             }
 
@@ -157,7 +156,8 @@
 
 
     function notifySickness(){
-        const notification = document.querySelector()
+        const notification = document.querySelector(".consultation-popup")
+        notification.classList.add("active");
     }
 
 </script>

@@ -344,3 +344,41 @@ body {
   color: var(--dark-violet);
   font-weight: bold;
 }
+
+
+
+/* Alea */
+.consultation-popup{
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+
+  background-color: #ff1b1b;
+
+  padding: 1rem;
+
+  border-radius: 5px;
+
+  z-index: 12;
+
+  box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.47);
+
+  opacity: 0;
+
+  transform: translateX(20%);
+  transition: 250ms;
+}
+
+.consultation-popup.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.consultation-popup > p {
+  color: white;
+}
+
+.consultation-popup > a {
+  color: var(--dark-violet);
+  font-weight: bold;
+}
