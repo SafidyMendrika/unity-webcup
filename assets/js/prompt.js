@@ -95,36 +95,44 @@ icon.addEventListener("click", () => {
 var predictionAffichage = new Array();
 var currentPredictionIndex = 1;
 
+var continueButton = document.querySelector("[data-continuer]");
+var retourButton = document.querySelector("[data-retour]");
+
 function afficher(predictions)
 {
   predictionAffichage = predictions;
 
   if (predictionAffichage.length == 0) return;
-  document.querySelector(".response-text-container").classList.add("show");
+  setTimeout(
+      () => {
+        document.querySelector(".response-text-container").classList.add("show");
+      }, 1000
+  )
 
-  afficherPrediction()
+  afficherPrediction(true)
 }
 
-function afficherPrediction() {
+function afficherPrediction(add) {
   const categorie = document.querySelector("[data-categorie]");
   const predictionTexte = document.querySelector("[data-prediction]");
 
+  if (predictionAffichage[currentPredictionIndex] == undefined && add) {
+    currentPredictionIndex--;
+  } else if (!predictionAffichage[currentPredictionIndex] == undefined && !add) {
+    currentPredictionIndex++;
+  }
 
   categorie.textContent = predictionAffichage[currentPredictionIndex]['nomcategorie'];
   predictionTexte.textContent = predictionAffichage[currentPredictionIndex]['prediction'];
 }
 
-
-var continueButton = document.querySelector("[data-continuer]");
-var retourButton = document.querySelector("[data-retour]");
-
 continueButton.addEventListener("click", (e) => {
   e.preventDefault();
   currentPredictionIndex++;
 
-  if (currentPredictionIndex >= predictionAffichage.length) currentPredictionIndex = predictionAffichage.length - 1;
+  if (currentPredictionIndex >= predictionAffichage.length) currentPredictionIndex = 1;
 
-  afficherPrediction()
+  afficherPrediction(true)
 })
 
 retourButton.addEventListener("click", (e) => {
@@ -134,5 +142,5 @@ retourButton.addEventListener("click", (e) => {
 
   if (currentPredictionIndex < 1) currentPredictionIndex = 1;
 
-  afficherPrediction();
+  afficherPrediction(false);
 })
