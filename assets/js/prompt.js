@@ -76,20 +76,20 @@ const historique = document.querySelector(".historique");
 const historyText = document.querySelector(".historique .text");
 const historyContainer = document.querySelector(".history-container");
 icon.addEventListener("click", () => {
-  let closed = false;
-  if (historique.classList.contains("active")) {
-    historyContainer.classList.remove("active");
-    closed = true;
-  }
-  historique.classList.toggle("active");
-  historyText.classList.toggle("simple");
-  icon.classList.toggle("active");
+    let closed = false;
+    if (historique.classList.contains("active")) {
+        historyContainer.classList.remove("active");
+        closed = true;
+    }
+    historique.classList.toggle("active");
+    historyText.classList.toggle("simple");
+    icon.classList.toggle("active");
 
-  if (!closed) {
-    window.setTimeout(() => {
-      historyContainer.classList.add("active");
-    }, 800);
-  }
+    if (!closed) {
+        window.setTimeout(() => {
+            historyContainer.classList.add("active");
+        }, 800);
+    }
 });
 
 var predictionAffichage = new Array();
@@ -101,60 +101,89 @@ var retourButton = document.querySelector("[data-retour]");
 
 function afficher(predictions)
 {
-  predictionAffichage = predictions;
+    predictionAffichage = predictions;
 
-  for (let key in predictionAffichage) {
-    if (predictionAffichage[key] === null) {
-      delete predictionAffichage[key];
+    if (predictionAffichage != null) {
+        for (let key in predictionAffichage) {
+            if (predictionAffichage[key] === null) {
+                delete predictionAffichage[key];
+            }
+        }
+
+        for (let key in predictionAffichage) {
+            indexes.push(key)
+        }
     }
-  }
 
-  for (let key in predictionAffichage) {
-    indexes.push(key)
-  }
+    setTimeout(
+        () => {
+            document.querySelector(".response-text-container").classList.add("show");
+        }, 1000
+    )
 
-  if (predictionAffichage.length == 0) return;
-  setTimeout(
-      () => {
-        document.querySelector(".response-text-container").classList.add("show");
-      }, 1000
-  )
-
-  afficherPrediction(true)
+    afficherPrediction(true)
 }
 
 function afficherPrediction(add) {
-  const categorie = document.querySelector("[data-categorie]");
-  const predictionTexte = document.querySelector("[data-prediction]");
+    const categorie = document.querySelector("[data-categorie]");
+    const predictionTexte = document.querySelector("[data-prediction]");
 
-  var catText = predictionAffichage[indexes[currentPredictionIndex]]['nomcategorie'];
-  categorie.textContent = catText.charAt(0).toUpperCase() + catText.slice(1);
+    continueButton.style.display = "block";
+    retourButton.style.display = "block";
 
-  var predText = predictionAffichage[indexes[currentPredictionIndex]]['prediction'];
+    console.log(predictionAffichage)
 
-  if (predictionAffichage[indexes[currentPredictionIndex]]['idcategorie'] == "2") {
-    predictionTexte.innerHTML = "<p>Vous avez experimenter un cauchemar, que, ONIRIX n'en peut predire nul chose.<p/><a href='#'>Veuillez plutot en parler a un professionnel.</a>"
-  } else {
-    predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
-  }
+    if (predictionAffichage != null) {
+        var catText = predictionAffichage[indexes[currentPredictionIndex]]['nomcategorie'];
+        categorie.textContent = catText.charAt(0).toUpperCase() + catText.slice(1);
+        
+
+        if (predictionAffichage[indexes[currentPredictionIndex]] == undefined) return;
+
+        let predText = predictionAffichage[indexes[currentPredictionIndex]]['prediction'];
+
+        let possedeCauchemar = false;
+        for (let i = 0; i < indexes.length; i++) {
+            if (predictionAffichage[indexes[i]]['nomreve'] == "cauchemar") {
+                possedeCauchemar = true;
+            }
+        }
+
+        if (possedeCauchemar) {
+            categorie.textContent = "Consultez";
+            predictionTexte.innerHTML = "<p>Vous avez experimenter un cauchemar, que, ONIRIX n'en peut predire nul chose.<p/><a id='link' href='#'>Veuillez plutot en parler a un professionnel.</a>"
+        } else {
+            predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
+        }
+    } else {
+        var catText = "Oups !"
+        categorie.textContent = catText.charAt(0).toUpperCase() + catText.slice(1);
+        var predText = "Certaines interpretations sont encore indisponible pour le moment.";
+        predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
+
+        continueButton.style.display = "none";
+        retourButton.style.display = "none";
+
+        currentPredictionIndex = 0;
+    }
 
 }
 
 continueButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  currentPredictionIndex++;
+    e.preventDefault();
+    currentPredictionIndex++;
 
-  if (currentPredictionIndex >= indexes.length) currentPredictionIndex = 0;
+    if (currentPredictionIndex >= indexes.length) currentPredictionIndex = 0;
 
-  afficherPrediction(true)
+    afficherPrediction(true)
 })
 
 retourButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  currentPredictionIndex--;
+    e.preventDefault();
+    currentPredictionIndex--;
 
 
-  if (currentPredictionIndex < 0) currentPredictionIndex = 0;
+    if (currentPredictionIndex < 0) currentPredictionIndex = indexes.length - 1;
 
-  afficherPrediction(false);
+    afficherPrediction(false);
 })

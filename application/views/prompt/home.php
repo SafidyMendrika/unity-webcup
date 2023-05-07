@@ -117,7 +117,7 @@
             afficher(predictions);
 
             var textPrompt = document.querySelector("#dream-input").value;
-            document.querySelector("#dream-input").textContent = "";
+            document.querySelector("#dream-input").value = "";
 
             document.querySelector("[data-prompt]").textContent = textPrompt;
         });
