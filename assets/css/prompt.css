@@ -280,7 +280,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
 
   width: 100%;
 
@@ -312,7 +312,7 @@ body {
     #d9d9d9 26.56%,
     rgba(217, 217, 217, 0) 100%
   );
-  border-radius: 30px 30px 0px 0px;
+  border-radius: 30px;
 
   padding: 5rem;
 
@@ -326,6 +326,7 @@ body {
   );
   border-radius: 30px 30px 0px 0px;
   color: var(--dark-violet);
+  box-shadow: 4px 4px 140px #100f1f;
 }
 
 .response-card-container {
