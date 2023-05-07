@@ -1,1 +1,1 @@
-<a href="<?= $client->createUrl() ?>"> le lien</a>
+<a href="<?= $client->createAuthUrl() ?>"> le lien</a>
