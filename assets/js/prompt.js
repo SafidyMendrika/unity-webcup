@@ -93,7 +93,8 @@ icon.addEventListener("click", () => {
 });
 
 var predictionAffichage = new Array();
-var currentPredictionIndex = 1;
+var currentPredictionIndex = 0;
+var indexes = new Array();
 
 var continueButton = document.querySelector("[data-continuer]");
 var retourButton = document.querySelector("[data-retour]");
@@ -101,6 +102,16 @@ var retourButton = document.querySelector("[data-retour]");
 function afficher(predictions)
 {
   predictionAffichage = predictions;
+
+  for (let key in predictionAffichage) {
+    if (predictionAffichage[key] === null) {
+      delete predictionAffichage[key];
+    }
+  }
+
+  for (let key in predictionAffichage) {
+    indexes.push(key)
+  }
 
   if (predictionAffichage.length == 0) return;
   setTimeout(
@@ -116,23 +127,24 @@ function afficherPrediction(add) {
   const categorie = document.querySelector("[data-categorie]");
   const predictionTexte = document.querySelector("[data-prediction]");
 
-  if (predictionAffichage[currentPredictionIndex] == undefined && add) {
-    currentPredictionIndex--;
-  } else if (!predictionAffichage[currentPredictionIndex] == undefined && !add) {
-    currentPredictionIndex++;
+  var catText = predictionAffichage[indexes[currentPredictionIndex]]['nomcategorie'];
+  categorie.textContent = catText.charAt(0).toUpperCase() + catText.slice(1);
+
+  var predText = predictionAffichage[indexes[currentPredictionIndex]]['prediction'];
+
+  if (predictionAffichage[indexes[currentPredictionIndex]]['idcategorie'] == "2") {
+    predictionTexte.innerHTML = "<p>Vous avez experimenter un cauchemar, que, ONIRIX n'en peut predire nul chose.<p/><a href='#'>Veuillez plutot en parler a un professionnel.</a>"
+  } else {
+    predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
   }
 
-  var catText = predictionAffichage[currentPredictionIndex]['nomcategorie'];
-  categorie.textContent = catText.charAt(0).toUpperCase() + catText.slice(1);
-  var predText = predictionAffichage[currentPredictionIndex]['prediction'];
-  predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
 }
 
 continueButton.addEventListener("click", (e) => {
   e.preventDefault();
   currentPredictionIndex++;
 
-  if (currentPredictionIndex >= predictionAffichage.length) currentPredictionIndex = 1;
+  if (currentPredictionIndex >= indexes.length) currentPredictionIndex = 0;
 
   afficherPrediction(true)
 })
@@ -142,7 +154,7 @@ retourButton.addEventListener("click", (e) => {
   currentPredictionIndex--;
 
 
-  if (currentPredictionIndex < 1) currentPredictionIndex = 1;
+  if (currentPredictionIndex < 0) currentPredictionIndex = 0;
 
   afficherPrediction(false);
 })
