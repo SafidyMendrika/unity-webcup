@@ -85,24 +85,23 @@ function changeTheme(dreamType){
 
 */
 // history
-const icon = document.querySelector(".icon");
+const icon = document.querySelector(".icon-arrow-right");
 const historique = document.querySelector(".historique");
 const historyText = document.querySelector(".historique .text");
 const historyContainer = document.querySelector(".history-container");
-icon.addEventListener("click",()=>{
-    let closed = false;
-    if (historique.classList.contains("active")){
-        historyContainer.classList.remove("active");
-        closed = true;
-    }
-    historique.classList.toggle("active");
-    historyText.classList.toggle("simple");
-    icon.classList.toggle("active");
+icon.addEventListener("click", () => {
+  let closed = false;
+  if (historique.classList.contains("active")) {
+    historyContainer.classList.remove("active");
+    closed = true;
+  }
+  historique.classList.toggle("active");
+  historyText.classList.toggle("simple");
+  icon.classList.toggle("active");
 
-    if (!closed){
-        window.setTimeout(()=>{
-            historyContainer.classList.add("active");
-        },800)
-    }
-
-})
+  if (!closed) {
+    window.setTimeout(() => {
+      historyContainer.classList.add("active");
+    }, 800);
+  }
+});

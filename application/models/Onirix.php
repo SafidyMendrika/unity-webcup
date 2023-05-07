@@ -1,6 +1,6 @@
 <?php
 
-class Onirix extends \CI_Model
+class Onirix extends CI_Model
 {
 
     private $apiKey = "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";
@@ -69,9 +69,11 @@ class Onirix extends \CI_Model
         $randomIndex = rand( 0,count($predictionArray) - 1);
         return $predictionArray[$randomIndex];
     }
+
+
     public function countDream (){
-       // $iduser =$_SESSION['iduser'],
-        $iduser =1;
+        $iduser =$_SESSION['iduser'];
+       // $iduser =1;
         $result= $this->db->query('select h.iduser,p.idtypereve,tr.libele from historique h NATURAL JOIN prediction p  JOIN typereve tr ON tr.id = p.idtypereve WHERE p.idtypereve=1 and h.iduser= '.$iduser);
         return $result->num_rows();
     }

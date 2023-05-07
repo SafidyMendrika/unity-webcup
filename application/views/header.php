@@ -17,6 +17,6 @@
 </head>
 <body>
     <header>
-        <a href="#">ONIRIX</a>
+        <a href="Home">ONIRIX</a>
         <a href="#">Se connecter</a>
     </header>
