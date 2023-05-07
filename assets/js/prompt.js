@@ -1,3 +1,6 @@
+// Checking if the user loses some snity
+
+
 /*// Create a Three.js scene
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x3b3772);
