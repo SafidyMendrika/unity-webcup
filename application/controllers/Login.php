@@ -30,5 +30,10 @@ class Login extends CI_Controller {
     public function loginGoogle($email, $mdp){
 
     }
+
+    public function deconnect(){
+        session_destroy();
+        redirect(base_url());
+    }
     
 }

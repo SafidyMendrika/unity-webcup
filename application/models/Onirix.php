@@ -78,14 +78,12 @@ class Onirix extends CI_Model
 
     public function countDream (){
         $iduser =$_SESSION['iduser'];
-       // $iduser =1;
         $result= $this->db->query('select h.iduser,p.idtypereve,tr.libele from historique h NATURAL JOIN prediction p  JOIN typereve tr ON tr.id = p.idtypereve WHERE p.idtypereve=1 and h.iduser= '.$iduser);
         return $result->num_rows();
     }
 
     public function countCauchemar (){
          $iduser =$_SESSION['iduser'];
-        //$iduser =1;
         $result= $this->db->query('select h.iduser,p.idtypereve,tr.libele from historique h NATURAL JOIN prediction p  JOIN typereve tr ON tr.id = p.idtypereve WHERE p.idtypereve=2 and h.iduser= '.$iduser);
         return $result->num_rows();
     }

@@ -5,8 +5,11 @@ class Prompt extends CI_Controller {
 
     function __construct()
     {
+
         parent::__construct();
-        $_SESSION["iduser"] = 1;
+        if (! isset($_SESSION["iduser"])){
+            redirect(base_url());
+        }
         $this->load->model("Onirix");
     }
 
@@ -30,7 +33,11 @@ class Prompt extends CI_Controller {
         $dreamCount = $this->Onirix->countDream();
         $nightmaresCount = $this->Onirix->countCauchemar();
 
-        echo "".$dreamCount>$nightmaresCount."";
+        if($dreamCount>=$nightmaresCount){
+            echo "true";
+        }else{
+            echo "false";
+        }
     }
 
 }
