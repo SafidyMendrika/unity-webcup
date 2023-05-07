@@ -9,6 +9,7 @@
 .news > .content {
   display: grid;
   grid-template-columns: repeat(3, auto);
+  align-items: stretch;
   gap: 20px;
 }
 
