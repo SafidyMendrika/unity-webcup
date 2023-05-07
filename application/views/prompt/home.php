@@ -11,7 +11,7 @@
 <link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/prompt.css"); ?>">
 <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
+
 <script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
 <body>
@@ -42,6 +42,30 @@
  </div>
     <div class="container" id="background-container">
         <div class="sun"></div>
+
+        <div class="response-text-container">
+            <div class="response-prompt">
+                <h1 data-prompt>Here is my prompt</h1>
+            </div>
+
+            <div class="response-card-container">
+                <div class="response-card">
+                    <div class="response-card-title">
+                        <h1 data-categorie>Education</h1>
+                    </div>
+
+                    <div class="response-card-text">
+                        <p data-prediction>Here is an example text hasgfkshdfhsdlkjhals kljdhflkjsdhlkjh hjsdfhkjhdkjhsdkjhsdkjhsdjk hskdjhlksjdfhlksjdhf kjhsdfkjhsdflkjhsdflkjh jsdhflkjhsdflkjhsdf jSfkjsdhflkjsdhflkjDHf sdfjhsdkfjhsdkfjhkjsd hgdfkjhsgdfkjhgsdfkjh sdfhgskdjhfgksjdhfgkJSDHGF</p>
+                    </div>
+
+                    <div class="control-buttons">
+                        <a data-retour href="#">Retour</a>
+                        <a data-continuer href="#">Continuer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="form-prompt-container">
             <form action="#" class="form-prompt">
                 <div class="prompt-input">
@@ -70,7 +94,11 @@
 
 </html>
 
+<script src="<?php echo base_url("assets/js/prompt.js") ?>"></script>
+
 <script>
+    var predictions = new Array();
+
     // Sending the prompt
     var dreamPromptSubmit = document.querySelector("#dream-prompt-submit");
     dreamPromptSubmit.addEventListener('click', (e) => {
@@ -80,7 +108,13 @@
         let xhr = new XMLHttpRequest();
 
         xhr.addEventListener('load' , (res) => {
-            console.log(JSON.parse(res.target.responseText));
+            let predictions = JSON.parse(res.target.responseText);
+            afficher(predictions);
+
+            var textPrompt = document.querySelector("#dream-input").value;
+            document.querySelector("#dream-input").textContent = "";
+
+            document.querySelector("[data-prompt]").textContent = textPrompt;
         });
 
         xhr.addEventListener('error', (res) => {
