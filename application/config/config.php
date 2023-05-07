@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/unity-webcup';
-//$config|'base_url'] = "https://unityteam.madagascar.webcup.hodi.host/unity-webcup/"; // deployé
+//$config['base_url'] = 'http://localhost/unity-webcup';
+$config['base_url'] = "https://unityteam.madagascar.webcup.hodi.host/unity-webcup/"; // deployé
 
 /*
 |--------------------------------------------------------------------------

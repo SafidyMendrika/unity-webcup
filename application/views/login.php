@@ -11,7 +11,7 @@
     <div class="container">
         <div class="left">
             <h1>Se connecter</h1>
-            <form action="<?php echo base_url('login/simplelogin')?>" method="post">
+            <form action="<?php echo base_url('Login/simplelogin')?>" method="post">
                 <div class="field">
                     <label for="">Email</label>
                     <input type="text" placeholder="Email" name="email" value="mirija@gmail.com">
@@ -25,7 +25,7 @@
                         <input type="submit" value="Se connecter">
                     </div>
                     <div>OU</div>
-                    <a href="#">
+                    <a href="<?= $client->createAuthUrl() ?>">
                         <span>
                             <img src="<?php echo base_url("assets/icon/google-color-svgrepo-com.svg"); ?>" alt="">
                         </span>

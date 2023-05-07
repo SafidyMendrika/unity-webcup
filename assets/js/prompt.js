@@ -151,7 +151,7 @@ function afficherPrediction(add) {
 
         if (possedeCauchemar) {
             categorie.textContent = "Consultez";
-            predictionTexte.innerHTML = "<p>Vous avez experimenter un cauchemar, que, ONIRIX n'en peut predire nul chose.<p/><a id='link' href='#'>Veuillez plutot en parler a un professionnel.</a>"
+            predictionTexte.innerHTML = `<p>Vous avez experimenter un cauchemar, que, ONIRIX n'en peut predire nul chose.<p/><a id='link' href='https://unityteam.madagascar.webcup.hodi.host/unity-webcup/specialist/detals/${predictionAffichage[indexes[currentPredictionIndex]]["idcategorie"]}'>Veuillez plutot en parler a un professionnel.</a>`
         } else {
             predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
         }

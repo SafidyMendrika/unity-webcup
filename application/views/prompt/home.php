@@ -6,11 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Onirix Prompt</title>
-</head>
 
-<link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/prompt.css"); ?>">
-<link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="icon" type="image/png" href="<?php echo base_url("assets/img/logo-onirix.png"); ?>" >
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/prompt.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
+</head>
 
 <script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="response-card-text">
-                        <p data-prediction>Here is an example text hasgfkshdfhsdlkjhals kljdhflkjsdhlkjh hjsdfhkjhdkjhsdkjhsdkjhsdjk hskdjhlksjdfhlksjdhf kjhsdfkjhsdflkjhsdflkjh jsdhflkjhsdflkjhsdf jSfkjsdhflkjsdhflkjDHf sdfjhsdkfjhsdkfjhkjsd hgdfkjhsgdfkjhgsdfkjh sdfhgskdjhfgksjdhfgkJSDHGF</p>
+                        <p data-prediction>Here is an example text</p>
                     </div>
 
                     <div class="control-buttons">

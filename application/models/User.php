@@ -23,12 +23,26 @@ class User extends CI_Model
         }
         return false;
     }
-    public function googleLogin(){
+    public function googleLogin($mail,$name){
+        $queryy = $this->db->select(["id","username"])->from("user")->where("email",$mail)->where("username",$name)->get();
 
+        if ($queryy->num_rows() == 1) {
+            return $queryy->result_array()[0];
+        }
+        $this->save($mail,$name);
+
+        $query = $this->db->select(["id","username"])->from("user")->where("email",$mail)->where("username",$name)->get();
+
+        return $query->result_array()[0];
     }
     public function findById($id){
         $query  = $this->db->select("*")->from("user")->where("id",$id)->get();
 
         return $query->result_array();
     }
+    public function save($mail,$name){
+        $this->db->query("INSERT INTO user(email,username) VALUES ('$mail','$name')");
+
+    }
+
 }
