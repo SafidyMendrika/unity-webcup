@@ -92,4 +92,57 @@ icon.addEventListener("click", () => {
   }
 });
 
+var predictionAffichage = new Array();
+var currentPredictionIndex = 1;
 
+var continueButton = document.querySelector("[data-continuer]");
+var retourButton = document.querySelector("[data-retour]");
+
+function afficher(predictions)
+{
+  predictionAffichage = predictions;
+
+  if (predictionAffichage.length == 0) return;
+  setTimeout(
+      () => {
+        document.querySelector(".response-text-container").classList.add("show");
+      }, 1000
+  )
+
+  afficherPrediction(true)
+}
+
+function afficherPrediction(add) {
+  const categorie = document.querySelector("[data-categorie]");
+  const predictionTexte = document.querySelector("[data-prediction]");
+
+  if (predictionAffichage[currentPredictionIndex] == undefined && add) {
+    currentPredictionIndex--;
+  } else if (!predictionAffichage[currentPredictionIndex] == undefined && !add) {
+    currentPredictionIndex++;
+  }
+
+  var catText = predictionAffichage[currentPredictionIndex]['nomcategorie'];
+  categorie.textContent = catText.charAt(0).toUpperCase() + catText.slice(1);
+  var predText = predictionAffichage[currentPredictionIndex]['prediction'];
+  predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
+}
+
+continueButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentPredictionIndex++;
+
+  if (currentPredictionIndex >= predictionAffichage.length) currentPredictionIndex = 1;
+
+  afficherPrediction(true)
+})
+
+retourButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentPredictionIndex--;
+
+
+  if (currentPredictionIndex < 1) currentPredictionIndex = 1;
+
+  afficherPrediction(false);
+})

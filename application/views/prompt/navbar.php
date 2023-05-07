@@ -5,6 +5,6 @@
         </span>
         <span>ONIRIX</span>
     </a>
-    <a href="#">Se deconnecter</a>
+    <a href="<?php echo base_url('login/deconnect')?>">Se deconnecter</a>
     
 </header>
