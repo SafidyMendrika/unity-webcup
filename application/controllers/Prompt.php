@@ -8,23 +8,28 @@ class Prompt extends CI_Controller {
         parent::__construct();
         $_SESSION["iduser"] = 1;
         $this->load->model("Onirix");
+        $this->load->model("History");
     }
 
     function index() {
+        $history = $this->History->histories($_SESSION["iduser"]);
+
+        $historyData["histories"] = $history;
+
         $this->load->view('prompt/navbar');
-        $this->load->view('prompt/home');
+        $this->load->view('prompt/home',$historyData);
     }
+
 
     function results() {
         $this->load->view('prompt/results');
     }
     function prompt(){
-        $prompt = $this->input->post("prompt");
+        $prompt = $this->input->post("dream-input");
 
         $onirix = new Onirix();
-        var_dump($onirix->countCauchemar());
 
-       // var_dump($onirix->processPrompt($prompt));
+        echo json_encode($onirix->processPrompt($prompt));
     }
 
     function checkPatientSanity() {

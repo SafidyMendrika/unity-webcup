@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
+<script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
 <body>
  <div class="historique">
@@ -20,16 +21,15 @@
             <img src="<?php echo base_url("assets/icon/arrow-right-336-svgrepo-com.svg"); ?>" alt="">
         </div>
         <div class="history-container" >
-            <div class="history reve" ><h2>Dormir debout</h2></div>
-            <div class="history reve" ><h2>Dormir assis</h2></div>
-            <div class="history cauchemar" ><h2>Dormir nu</h2></div>
-            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
-            <div class="history reve" ><h2>Dormir rassasié</h2></div>
-            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
-            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
-            <div class="history cauchemar" ><h2>ne pas Dormir</h2></div>
-            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
-            <div class="history cauchemar" ><h2>Dormir dehors</h2></div>
+            <?php foreach ($histories as $history){ ?>
+                <div class="history <?php
+                if ($history["idtypereve"] == 1){
+                    echo "reve";
+                }else{
+                    echo "cauchemar";
+                }
+                ?>" ><h2><?= $history["prediction"] ?></h2></div>
+            <?php } ?>
 
         </div>
         </div>
@@ -40,7 +40,7 @@
             <form action="#" class="form-prompt">
                 <div class="prompt-input">
                     <textarea name="dream-input" placeholder="Décrivez votre rêve..." class="form-input" id="dream-input"></textarea>
-                    <div class="icon-send">
+                    <div class="icon-send" id="dream-prompt-submit">
                         <img src="<?php echo base_url("assets/icon/send-svgrepo-com.svg"); ?>" alt="">
                     </div>
                 </div>
@@ -61,13 +61,49 @@
         
     </div>
 </body>
+
+</html>
+
+<script>
+    // Sending the prompt
+    var dreamPromptSubmit = document.querySelector("#dream-prompt-submit");
+    dreamPromptSubmit.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Ajax to the controller
+        let xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('load' , (res) => {
+            console.log(JSON.parse(res.target.responseText));
+        });
+
+        xhr.addEventListener('error', (res) => {
+            console.log("We have an error in the sending of the prompt");
+        })
+
+        // Getting the input of the prompt
+        var dreamPromptForm = document.querySelector(".form-prompt");
+        var formData = new FormData(dreamPromptForm);
+
+        xhr.open('POST', '<?php echo base_url('Prompt/prompt') ?>');
+        xhr.send(formData);
+    });
+</script>
+
 <script>
     window.addEventListener('load', () => {
         var xhr = new XMLHttpRequest();
 
         xhr.addEventListener('load', (res) => {
-            console.log("tongaaa");
+
             console.log(res.target.responseText);
+
+            var result = res.target.responseText;
+
+            if(result == "false"){
+                notifySickness();
+            }
+
         });
 
         xhr.addEventListener('error', (res) => {
@@ -78,5 +114,12 @@
         xhr.send(null);
     })
 
+
+
+    function notifySickness(){
+        const notification = document.querySelector()
+    }
+
 </script>
 </html>
+
