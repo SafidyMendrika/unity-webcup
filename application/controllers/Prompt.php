@@ -6,7 +6,9 @@ class Prompt extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $_SESSION["iduser"] = 1;
+        if (!isset($_SESSION['iduser'])){
+            redirect(base_url('login'));
+        }
         $this->load->model("Onirix");
         $this->load->model("History");
     }
