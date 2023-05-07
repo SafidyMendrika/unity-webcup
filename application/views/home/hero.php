@@ -1,7 +1,12 @@
 <section class="section hero section--is-active" data-aos="fade-up">
     <div class="top">
-        <h1>Et si les rêves étaient<br />capables de prédire l'avenir ?</h1>
-        <a href="<?php echo base_url('prompt') ?>">Essayer</a>
+        <div>
+            <h1>Et si les rêves étaient<br />capables de prédire l'avenir ?</h1>
+            <a href="<?php echo base_url('prompt') ?>">Essayer</a>
+        </div>
+        <div>
+            <img src="<?php echo base_url("assets/img/chaos-1.svg"); ?>" alt="">
+        </div>
     </div>
     <hr />
     <div class="bottom">
