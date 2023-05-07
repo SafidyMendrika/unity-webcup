@@ -14,7 +14,6 @@ class Onirix extends CI_Model
 
     public function processPrompt($prompt) {
         $splitedPrompt = preg_split('/[\s,]+/', strtolower($prompt));
-        var_dump($splitedPrompt);
         // Populating a dictionnary of category
         $predictionsCategory = array();
 
@@ -24,6 +23,8 @@ class Onirix extends CI_Model
            // var_dump($predictionCategory);
             $predictionsCategory[$predictionCategory["id"]] = null;
         }
+
+        $isRecognized = false;
 
         // Comparer avec les mots cle
         $keywords_query = $this->db->query('SELECT * FROM motcle');
@@ -36,9 +37,13 @@ class Onirix extends CI_Model
                     if ($predictionsCategory[$prediction["idcategorie"]] != null) break;
 
                     $predictionsCategory[$prediction["idcategorie"]] = $prediction;
+
+                    $isRecognized = true;
                 }
             }
         }
+
+        if (!$isRecognized) return null;
 
         // Save the users predictions
         $data = array();
@@ -79,8 +84,8 @@ class Onirix extends CI_Model
     }
 
     public function countCauchemar (){
-        // $iduser =$_SESSION['iduser'],
-        $iduser =1;
+         $iduser =$_SESSION['iduser'];
+        //$iduser =1;
         $result= $this->db->query('select h.iduser,p.idtypereve,tr.libele from historique h NATURAL JOIN prediction p  JOIN typereve tr ON tr.id = p.idtypereve WHERE p.idtypereve=2 and h.iduser= '.$iduser);
         return $result->num_rows();
     }

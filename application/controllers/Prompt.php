@@ -6,7 +6,7 @@ class Prompt extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-
+        $_SESSION["iduser"] = 1;
         $this->load->model("Onirix");
     }
 
@@ -19,18 +19,18 @@ class Prompt extends CI_Controller {
         $this->load->view('prompt/results');
     }
     function prompt(){
-        $prompt = $this->input->post("prompt");
+        $prompt = $this->input->post("dream-input");
 
         $onirix = new Onirix();
 
-        echo $onirix->processPrompt($prompt);
+        echo json_encode($onirix->processPrompt($prompt));
     }
 
     function checkPatientSanity() {
         $dreamCount = $this->Onirix->countDream();
         $nightmaresCount = $this->Onirix->countCauchemar();
 
-        return $dreamCount > $nightmaresCount;
+        echo "".$dreamCount>$nightmaresCount."";
     }
 
 }
