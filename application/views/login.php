@@ -14,11 +14,11 @@
             <form action="<?php echo base_url('login/simplelogin')?>" method="post">
                 <div class="field">
                     <label for="">Email</label>
-                    <input type="text" placeholder="Email" name="email">
+                    <input type="text" placeholder="Email" name="email" value="mirija@gmail.com">
                 </div>
                 <div class="field">
                     <label for="">Mot de passe</label>
-                    <input type="password" placeholder="Mot de passe" name="mdp">
+                    <input type="password" placeholder="Mot de passe" name="mdp" value="mirija">
                 </div>
                 <div class="buttons">
                     <div>
