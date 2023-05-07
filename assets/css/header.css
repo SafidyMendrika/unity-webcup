@@ -20,6 +20,17 @@ header a {
 header a:nth-child(1) {
   font-weight: bold;
   font-size: 30px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+header a:nth-child(1) > span:nth-child(1) {
+  display: flex;
+}
+
+header a:nth-child(1) img {
+  width: 2.5rem;
 }
 
 header a:nth-child(2) {

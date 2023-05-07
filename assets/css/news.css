@@ -18,12 +18,24 @@
   flex-direction: column;
   position: relative;
   min-height: 320px;
-  background-image: url("../img/image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: flex-end;
   border-radius: 5px;
   box-shadow: 1px 1px 30px #00000030;
+}
+
+
+.news > .content > .card-news:nth-child(1) {
+  background-image: url("../img/AI.png");
+}
+
+.news > .content > .card-news:nth-child(2) {
+  background-image: url("../img/actualite.jpg");
+}
+
+.news > .content > .card-news:nth-child(3) {
+  background-image: url("../img/ai3.jpg");
 }
 
 .news > .content > .card-news > .text {

@@ -17,7 +17,12 @@
 </head>
 <body>
     <header>
-        <a href="<?= base_url() ?>">ONIRIX</a>
+        <a href="<?= base_url() ?>">
+            <span>
+                <img src="<?php echo base_url("assets/icon/brain-9-svgrepo-com.svg"); ?>" alt="">
+            </span>
+            <span>ONIRIX</span>
+        </a>
         <a href="<?= base_url("Login") ?>">Se connecter</a>
 
     </header>
