@@ -122,8 +122,10 @@ function afficherPrediction(add) {
     currentPredictionIndex++;
   }
 
-  categorie.textContent = predictionAffichage[currentPredictionIndex]['nomcategorie'];
-  predictionTexte.textContent = predictionAffichage[currentPredictionIndex]['prediction'];
+  var catText = predictionAffichage[currentPredictionIndex]['nomcategorie'];
+  categorie.textContent = catText.charAt(0).toUpperCase() + catText.slice(1);
+  var predText = predictionAffichage[currentPredictionIndex]['prediction'];
+  predictionTexte.textContent = predText.charAt(0).toUpperCase() + predText.slice(1);
 }
 
 continueButton.addEventListener("click", (e) => {
