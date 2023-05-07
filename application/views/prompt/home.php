@@ -95,11 +95,8 @@
         var xhr = new XMLHttpRequest();
 
         xhr.addEventListener('load', (res) => {
-            var result = res.target.responseText;
-
-            if(! result){
-                notifySickness();
-            }
+            console.log("tongaaa");
+            console.log(res.target.responseText);
         });
 
         xhr.addEventListener('error', (res) => {
@@ -109,9 +106,7 @@
         xhr.open('GET', '<?= base_url("Prompt/checkPatientSanity") ?>');
         xhr.send(null);
     })
-    function notifySickness(){
 
-    }
 </script>
 </html>
 >>>>>>> main

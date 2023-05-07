@@ -1,4 +1,4 @@
 <header>
     <a href="Home">ONIRIX</a>
-    <a href="<?php echo (base_url('login/deconnect'))?>">Se deconnecter</a>
+    <a href="#">Se deconnecter</a>
 </header>
