@@ -61,7 +61,7 @@
         
     </div>
 </body>
-<<<<<<< HEAD
+
 </html>
 
 <script>
@@ -89,14 +89,22 @@
         xhr.send(formData);
     });
 </script>
-=======
+
 <script>
     window.addEventListener('load', () => {
         var xhr = new XMLHttpRequest();
 
         xhr.addEventListener('load', (res) => {
+
             console.log("tongaaa");
             console.log(res.target.responseText);
+
+            var result = res.target.responseText;
+
+            if(result == "false"){
+                notifySickness();
+            }
+
         });
 
         xhr.addEventListener('error', (res) => {
@@ -107,6 +115,12 @@
         xhr.send(null);
     })
 
+
+
+    function notifySickness(){
+        const notification = document.querySelector()
+    }
+
 </script>
 </html>
->>>>>>> main
+
