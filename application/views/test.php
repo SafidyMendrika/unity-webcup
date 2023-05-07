@@ -1,0 +1,1 @@
+<a href="<?= $client->createUrl() ?>"> le lien</a>
