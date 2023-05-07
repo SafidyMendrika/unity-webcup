@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="response-card-text">
-                        <p data-prediction>Here is an example text hasgfkshdfhsdlkjhals kljdhflkjsdhlkjh hjsdfhkjhdkjhsdkjhsdkjhsdjk hskdjhlksjdfhlksjdhf kjhsdfkjhsdflkjhsdflkjh jsdhflkjhsdflkjhsdf jSfkjsdhflkjsdhflkjDHf sdfjhsdkfjhsdkfjhkjsd hgdfkjhsgdfkjhgsdfkjh sdfhgskdjhfgksjdhfgkJSDHGF</p>
+                        <p data-prediction>Here is an example text</p>
                     </div>
 
                     <div class="control-buttons">
