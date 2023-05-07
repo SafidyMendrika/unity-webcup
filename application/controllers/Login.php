@@ -36,6 +36,8 @@ class Login extends CI_Controller {
         redirect(base_url());
     }
     public function googleLogin(){
+        require "assets/google-api/vendor/autoload.php";
+
         $client = new Google_Client();
         $client->setClientId('931044001147-sbfcmmvrfjfutoudu3ajn64okd0himh8.apps.googleusercontent.com');
         $client->setClientSecret('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');
@@ -60,5 +62,8 @@ class Login extends CI_Controller {
                 var_dump($data);
             }
         }
+
+        $data["client"] = $client;
+        $this->load->view("test",$data);
     }
 }
