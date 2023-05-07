@@ -22,7 +22,6 @@ class Specialist extends CI_Controller
         $data["specialist"] = $this->specialists[$specialite];
         $data["edt"] = $this->edt[$specialite];
 
-        var_dump($data);
         $this->load->view("specialist/detals",$data);
     }
     public function index(){
