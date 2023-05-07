@@ -67,6 +67,10 @@
   margin: 2rem 0;
 }
 
+.about > .partenaire {
+  padding-bottom: 3rem;
+}
+
 .about > .partenaire > div {
   display: grid;
   gap: 0.5rem;
@@ -92,9 +96,5 @@
 
   .about h1 {
     font-size: 3vmin;
-  }
-
-  .about {
-    margin-top: 100vh;
   }
 }

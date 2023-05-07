@@ -24,6 +24,7 @@ body {
   max-width: 90%;
   height: 100vh;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 a {
@@ -90,6 +91,7 @@ section {
   }
 
   main {
+    display: block;
     max-width: 90%;
   }
 }

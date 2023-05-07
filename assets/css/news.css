@@ -49,8 +49,18 @@
   background-color: rgba(0, 0, 0, 0.116);
 }
 
-@media screen and (max-width: 967px) {
+@media screen and (max-width: 756px) {
   .news > .content {
-    grid-template-columns: repeat(auto-fill, minmax(281px, 1fr));
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+  }
+
+  .news > .content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .news > .content > .card-news {
+    min-width: 290px;
   }
 }
