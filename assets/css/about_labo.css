@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   color: white;
+  position: relative;
+}
+
+.about-labo > .desc_1 {
+  position: relative;
 }
 
 .about-labo > div {
@@ -18,5 +23,6 @@
   margin-bottom: 1.5rem;
 }
 
-.about-labo > .desc_1 {
+.about-labo p {
+  color: #d5d5d5;
 }

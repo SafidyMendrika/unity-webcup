@@ -35,7 +35,7 @@
             </form>
         </div>
         <div class="right">
-            <img src="" alt="">
+            <img style="width: 34rem;" src="<?php echo base_url("assets/img/bg-img.svg"); ?>" alt="">
         </div>
     </div>
 </body>
