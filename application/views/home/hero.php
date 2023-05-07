@@ -1,4 +1,4 @@
-<section class="section hero section--is-active" data-aos="fade-up">
+<section class="section hero section--is-active">
     <div class="top">
         <div>
             <h1>Et si les rêves étaient<br />capables de prédire l'avenir ?</h1>

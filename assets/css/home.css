@@ -91,7 +91,6 @@ section {
   }
 
   main {
-    display: block;
     max-width: 90%;
   }
 }
@@ -104,7 +103,9 @@ section {
   }
 
   main {
+    display: block;
     max-width: 100%;
+    padding-top: 10rem;
   }
 
   body {
