@@ -28,7 +28,13 @@
                 }else{
                     echo "cauchemar";
                 }
-                ?>" ><h2><?= $history["prediction"] ?></h2></div>
+                ?>" ><h2><?= $history["prediction"] ?></h2>
+                    <?php
+                    if ($history["idtypereve"] != 1){ ?>
+
+                        <a href="<?= base_url("Specialist/detals/".$history["idcategorieprediction"]) ?>"><button>consulter</button></a>
+                    <?php }?>
+                </div>
             <?php } ?>
 
         </div>
