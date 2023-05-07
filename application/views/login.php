@@ -11,14 +11,14 @@
     <div class="container">
         <div class="left">
             <h1>Se connecter</h1>
-            <form action="#">
+            <form action="<?php echo base_url('login/simplelogin')?>" method="post">
                 <div class="field">
-                    <label for="">Nom d'utilisateur</label>
-                    <input type="text" placeholder="Nom d'utilisateur">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="Email" name="email">
                 </div>
                 <div class="field">
                     <label for="">Mot de passe</label>
-                    <input type="password" placeholder="Mot de passe">
+                    <input type="password" placeholder="Mot de passe" name="mdp">
                 </div>
                 <div class="buttons">
                     <div>
