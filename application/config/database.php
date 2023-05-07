@@ -82,7 +82,7 @@ $db['default'] = array(
     'username' => 'unity',// local
     //'username' => 'unityteam_unity',// deployé
 
-    'password' => 'unity',// local
+    'password' => '',// local
     //'password' => 'unity45/UNITY45',// deployé
 
     'database' => 'webcup',// local
