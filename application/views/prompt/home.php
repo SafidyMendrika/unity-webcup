@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="<?php echo base_url("assets/js/prompt.js") ?>" defer></script>
+<script src="<?php echo base_url("assets/js/prompt-submition.js") ?>" defer></script>
 
 <body>
  <div class="historique">
