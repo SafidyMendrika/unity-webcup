@@ -46,7 +46,7 @@ body {
   box-shadow: 4px 4px 140px #100f1f;
   width: 60%;
   height: auto;
-  z-index: 10;
+  z-index: 11;
   bottom: 40%;
   transition: 600ms;
 }
@@ -267,4 +267,80 @@ body {
 
 #dream-prompt-submit {
   cursor: pointer;
+}
+
+
+/* response text container */
+
+.response-text-container {
+  color: white;
+
+  position: absolute;
+  top: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  width: 100%;
+
+  z-index: 11;
+
+  opacity: 0 !important;
+
+  transition: 250ms;
+}
+
+.response-text-container.show {
+  opacity: 1 !important;
+
+  top: 15%;
+}
+
+.response-text-container > .response-prompt > p {
+  text-align: center;
+}
+
+.response-text-container .response-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+
+  background: linear-gradient(180deg, #D9D9D9 26.56%, rgba(217, 217, 217, 0) 100%);
+  border-radius: 30px 30px 0px 0px;
+
+  padding: 5rem;
+
+  text-align: center;
+
+  width: 923px;
+
+  color: var(--dark-violet);
+}
+
+.response-card-container {
+  display: flex;
+}
+
+.response-card .response-card-title > h1 {
+  font-weight: bold;
+}
+
+.response-card .response-text-container {
+  width: 70%;
+}
+
+.response-card .control-buttons {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.control-buttons a {
+  text-decoration: none;
+  color: var(--dark-violet);
+  font-weight: bold;
 }

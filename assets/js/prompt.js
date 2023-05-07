@@ -92,4 +92,47 @@ icon.addEventListener("click", () => {
   }
 });
 
+var predictionAffichage = new Array();
+var currentPredictionIndex = 1;
 
+function afficher(predictions)
+{
+  predictionAffichage = predictions;
+
+  if (predictionAffichage.length == 0) return;
+  document.querySelector(".response-text-container").classList.add("show");
+
+  afficherPrediction()
+}
+
+function afficherPrediction() {
+  const categorie = document.querySelector("[data-categorie]");
+  const predictionTexte = document.querySelector("[data-prediction]");
+
+
+  categorie.textContent = predictionAffichage[currentPredictionIndex]['nomcategorie'];
+  predictionTexte.textContent = predictionAffichage[currentPredictionIndex]['prediction'];
+}
+
+
+var continueButton = document.querySelector("[data-continuer]");
+var retourButton = document.querySelector("[data-retour]");
+
+continueButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentPredictionIndex++;
+
+  if (currentPredictionIndex >= predictionAffichage.length) currentPredictionIndex = predictionAffichage.length - 1;
+
+  afficherPrediction()
+})
+
+retourButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentPredictionIndex--;
+
+
+  if (currentPredictionIndex < 1) currentPredictionIndex = 1;
+
+  afficherPrediction();
+})
