@@ -23,24 +23,26 @@ class User extends CI_Model
         }
         return false;
     }
-    public function googleLogin(){
-        require "vendor/autoload.php";
+    public function googleLogin($mail,$name){
+        $queryy = $this->db->select(["id","username"])->from("user")->where("email",$mail)->where("username",$name)->get();
 
-        $client = new Google_Client();
-        $client->setClientId('931044001147-sbfcmmvrfjfutoudu3ajn64okd0himh8.apps.googleusercontent.com');
-        $client->setClientSecret('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');
-        $client->setRedirectUri('https://unityteam.madagascar.webcup.hodi.host/Prompt');
-        $client->addScope(Google_Service_Drive::DRIVE);
+        if ($queryy->num_rows() == 1) {
+            return $queryy->result_array()[0];
+        }
+        $this->save($mail,$name);
 
-        $service = new Google_Service_Drive($client);
+        $query = $this->db->select(["id","username"])->from("user")->where("email",$mail)->where("username",$name)->get();
 
-        $files = $service->files->listFiles(array())->getItems();
-
-        return $files;
+        return $query->result_array()[0];
     }
     public function findById($id){
         $query  = $this->db->select("*")->from("user")->where("id",$id)->get();
 
         return $query->result_array();
     }
+    public function save($mail,$name){
+        $this->db->query("INSERT INTO user(email,username) VALUES ('$mail','$name')");
+
+    }
+
 }

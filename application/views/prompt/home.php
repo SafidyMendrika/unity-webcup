@@ -44,7 +44,7 @@
             <div class="response-card-container">
                 <div class="response-card">
                     <div class="response-card-title">
-                        <h1 data-categorie>Education</h1>
+                        <h1 data-categorie style="text-transform: uppercase;">Education</h1>
                     </div>
 
                     <div class="response-card-text">
@@ -110,7 +110,7 @@
             afficher(predictions);
 
             var textPrompt = document.querySelector("#dream-input").value;
-            document.querySelector("#dream-input").textContent = "";
+            document.querySelector("#dream-input").value = "";
 
             document.querySelector("[data-prompt]").textContent = textPrompt;
         });

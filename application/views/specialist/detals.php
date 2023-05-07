@@ -14,12 +14,13 @@
     <div class="title"><h1>Nos suggestions de Specialistes</h1></div>
 
     <div class="list-container">
-            <div class="specialist-card" >
-                <div class="img-container" ></div>
-                <div class="text-container" >
-
-                </div>
+        <div class="specialist-card" >
+            <div class="text-container" >
+                <h2>Nom : <?= $specialist["nom"] ?></h2>
+                <h2>Specialité : <?= $specialist["Specialité"] ?></h2>
+                <h2>Contact : <?= $specialist["contact"] ?></h2>
             </div>
+        </div>
     </div>
 
 </body>

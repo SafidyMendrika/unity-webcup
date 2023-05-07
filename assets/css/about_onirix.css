@@ -13,6 +13,18 @@
   color: #d5d5d5;
 }
 
+.about-onirix > .logo {
+  overflow: hidden;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.about-onirix > .logo img {
+  width: 20rem;
+}
+
 @media screen and (max-width: 967px) {
   .about-onirix {
     justify-content: center;

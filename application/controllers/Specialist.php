@@ -8,9 +8,9 @@ class Specialist extends CI_Controller
         parent::__construct();
 
         $this->specialists = array(
-            array("nom"=>"Albert Martieux","Specialité"=>"education","contact"=>"+33 18 56 214"),
-            array("nom"=>"Bernard Dupuis ","Specialité"=>"professionnel","contact"=>"+33 17 54 111"),
-            array("nom"=>"Kevin Chantecler","Specialité"=>"amoureuse","contact"=>"+33 89 65 397"),
+            array("nom"=>"Albert Martieux","Specialité"=>"education","contact"=>"+261 34 1856 21"),
+            array("nom"=>"Bernard Dupuis ","Specialité"=>"professionnel","contact"=>"+261 33 175 11"),
+            array("nom"=>"Kevin Chantecler","Specialité"=>"amoureuse","contact"=>"+261 34 896 97"),
         );
         $this->edt = array(
             array("08H00 - 16H00","Fermé","09H30 - 13H00","08H30 - 14H00","09H - 15H00"),
